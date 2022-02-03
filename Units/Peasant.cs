@@ -26,7 +26,7 @@ namespace Units
 
         public void UnitInfo()
         {
-            Console.WriteLine($"health {CurrentHealth} maxHealth {MaxHealth}");
+            Console.WriteLine($"Peasants health {CurrentHealth} maxHealth {MaxHealth}");
         }
     }
 }
