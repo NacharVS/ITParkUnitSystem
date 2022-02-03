@@ -7,26 +7,20 @@ using UnitImplementation;
 
 namespace Units
 {
-    class Peasant : Unit, IMovableUnit
+    class Castle : Unit, IBuilding
     {
-        public Peasant(double currentHealth, double maxHealth)
-        {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
-        }
-
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
-        public int WalkingSpeed { get => 5;  }
+        public double Wall { get => 1000; }
 
-        public void Move()
+        public Peasant CreatePeasant()
         {
-            Console.WriteLine($"Peasant moving with {WalkingSpeed}");
+            return new Peasant(30, 30);
         }
 
         public void UnitInfo()
         {
-            Console.WriteLine($"health {CurrentHealth} maxHealth {MaxHealth}");
+            Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
         }
     }
 }
