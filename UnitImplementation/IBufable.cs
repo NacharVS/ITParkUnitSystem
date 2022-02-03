@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-    public interface IBattleUnit : IUnit
+    public interface IBufable
     {
-        public int Armor { get; set; }
-        public double Damage { get; set; }
-
-        void Attack(IUnit unit);
-
-
+        void StoneSkin();
     }
 }
