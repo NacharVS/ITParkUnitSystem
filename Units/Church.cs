@@ -19,7 +19,7 @@ namespace Units
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
         }
 
-        public static void Blessing(IMovableUnit unit)
+        public void Blessing(IMovableUnit unit)
         {
             unit.MaxHealth += unit.MaxHealth * 0.5;//unitMaxhealth = unit maxhealth + unitmaxHealth*0.5
         }

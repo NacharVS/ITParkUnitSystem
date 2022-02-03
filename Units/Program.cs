@@ -7,9 +7,10 @@ namespace Units
     {
         static void Main(string[] args)
         {
+            var building = new Church();
             var unit = new Castle().CreatePeasant();
             unit.UnitInfo();
-            Church.Blessing(unit);
+            building.Blessing(unit);
             unit.UnitInfo();
         }
     }
