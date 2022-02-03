@@ -8,7 +8,9 @@ namespace UnitImplementation
 {
     public interface IBattleUnit:IUnit
     {
-        public int Damage { get; set; }
         void Attack(IUnit unit);
+        public int Armor { get; set; }
+        void ChangeWeapon(IBattleUnitWeapon weapon);  
     }
+    
 }

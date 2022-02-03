@@ -19,11 +19,15 @@ namespace Units
         }
         public Footman CreateFootman()
         {
-            return new Footman(60, 60);
+            return new Footman(60, 60, new IronSword());
         }
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
+        }
+        public void ChangeWeapon(IBattleUnitWeapon weapon)
+        {
+
         }
     }
 }
