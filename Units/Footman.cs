@@ -6,24 +6,29 @@ namespace Units
 {
     class Footman : Unit, IMovableUnit, IBattleUnit, IBufable
     {
-        public Footman(double currentHealth, double maxHealth)
+        public Footman(double currentHealth, double maxHealth, IBattleUnitWeapon weaponParameter)
         {
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
+            currentWeapon = weaponParameter;
         }
+
 
         private int _armor;
         public int WalkingSpeed => 6;
 
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
-        public double Damage { get => 7; set => throw new NotImplementedException(); }
         public int Armor { get => _armor; set => _armor = value; }
+
+        IBattleUnitWeapon currentWeapon;
 
         public void Attack(IUnit unit)
         {
-            Console.WriteLine($"Footman inflicted {Damage}");
-            unit.CurrentHealth -= Damage;
+            Random rnd = new Random();
+            var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
+            Console.WriteLine($"Footman inflicted {currentDamage}");
+            unit.CurrentHealth -= currentDamage;
             unit.UnitInfo();
         }
 
@@ -42,6 +47,11 @@ namespace Units
         public void UnitInfo()
         {
             Console.WriteLine($"Footmans health {CurrentHealth} maxHealth {MaxHealth} armor {Armor}");
+        }
+
+        public void ChangeWeapon(IBattleUnitWeapon newWeapon)
+        {
+            currentWeapon = newWeapon;
         }
     }
 }
