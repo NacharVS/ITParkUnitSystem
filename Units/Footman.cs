@@ -14,13 +14,13 @@ namespace Units
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
         }
-
+        private double _armor;
         public int WalkingSpeed => 6;
 
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Damage { get => 7; set => throw new NotImplementedException(); }
-
+        public double Armor { get => _armor; set => _armor=value; }
         public void Attack(IUnit unit)
         {
             unit.CurrentHealth-=Damage;
@@ -33,7 +33,13 @@ namespace Units
         }
         public void UnitInfo()
         {
-            Console.WriteLine($"health {CurrentHealth} maxHealth {MaxHealth} damage { Damage}");
+            Console.WriteLine($"health {CurrentHealth} maxHealth {MaxHealth} damage { Damage} stone {Armor}");
+        }
+        public void StoneSkin()
+        {
+            Armor += 10;
+            CurrentHealth += 30;
+            MaxHealth+=30;
         }
     }
 }

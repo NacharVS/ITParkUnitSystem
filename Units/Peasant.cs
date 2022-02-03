@@ -7,7 +7,7 @@ using UnitImplementation;
 
 namespace Units
 {
-    class Peasant : Unit, IMovableUnit
+    class Peasant : Unit, IMovableUnit,IBuffable
     {
         public Peasant(double currentHealth, double maxHealth)
         {
@@ -22,6 +22,12 @@ namespace Units
         public void Move()
         {
             Console.WriteLine($"Peasant moving with {WalkingSpeed}");
+        }
+
+        public void StoneSkin()
+        {
+            CurrentHealth += 30;
+            MaxHealth += 30;
         }
 
         public void UnitInfo()
