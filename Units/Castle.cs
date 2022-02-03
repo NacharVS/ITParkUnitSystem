@@ -19,7 +19,7 @@ namespace Units
         }
         public Footman CreateFootman()
         {
-            return new Footman(30, 30);
+            return new Footman(60, 60);
         }
         public void UnitInfo()
         {
