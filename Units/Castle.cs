@@ -17,7 +17,10 @@ namespace Units
         {
             return new Peasant(30, 30);
         }
-
+        public Footman CreateFootman()
+        {
+            return new Footman(30, 30);
+        }
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");

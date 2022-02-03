@@ -7,11 +7,14 @@ namespace Units
     {
         static void Main(string[] args)
         {
-            var building = new Church();
-            var unit = new Castle().CreatePeasant();
+            var building1 = new Church();
+            var building2 = new Castle();
+            var unit = building2.CreatePeasant();
+            var unit2 = building2.CreateFootman();
             unit.UnitInfo();
-            building.Blessing(unit);
+            building1.Blessing(unit);
             unit.UnitInfo();
+            unit2.Attack(unit);
         }
     }
 }
