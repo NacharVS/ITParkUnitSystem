@@ -19,6 +19,11 @@ namespace Units
             return new Peasant(30, 30);
         }
 
+        public Blacksmith CreateBlacksmith()
+        {
+            return new Blacksmith(35, 35);
+        }
+
         public Footman CreateFootman()
         {
             return new Footman(60, 60, new IronShortSword());

@@ -16,7 +16,7 @@ namespace Units
 
         public void Move()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{GetType().Name} moving with {WalkingSpeed}");
         }
 
         public void UnitInfo()
