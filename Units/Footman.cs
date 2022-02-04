@@ -28,8 +28,8 @@ namespace Units
             Random rnd = new Random();
             var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
             Console.WriteLine($"Footman inflicted {currentDamage}");
-            unit.CurrentHealth -= currentDamage;
-            unit.UnitInfo();
+            unit.GetWound(currentDamage);
+            //unit.CurrentHealth -= currentDamage;
         }
 
         public void Move()
@@ -52,6 +52,12 @@ namespace Units
         public void ChangeWeapon(IBattleUnitWeapon newWeapon)
         {
             currentWeapon = newWeapon;
+        }
+
+        public void GetWound(double currentDamage)
+        {
+            CurrentHealth -= currentDamage;
+            UnitInfo();
         }
     }
 }
