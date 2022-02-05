@@ -10,7 +10,7 @@ namespace UnitImplementation
     {
         public int Armor { get; set; }
   
-        void Attack(IUnit unit);
+        void Attack(IMovableUnit unit);
 
         void ChangeWeapon(IBattleUnitWeapon newWeapon);
 

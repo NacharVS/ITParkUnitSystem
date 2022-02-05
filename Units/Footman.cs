@@ -8,8 +8,8 @@ namespace Units
     {
         public Footman(double currentHealth, double maxHealth, IBattleUnitWeapon weaponParameter)
         {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
+            _currentHealth = currentHealth;
+            _maxHealth = maxHealth;
             currentWeapon = weaponParameter;
         }
 
@@ -17,19 +17,37 @@ namespace Units
         private int _armor;
         public int WalkingSpeed => 6;
 
-        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double CurrentHealth
+        {
+            get => _currentHealth;
+            set
+            {
+                if (value >= MaxHealth)
+                {
+                    _currentHealth = MaxHealth;
+                }
+                else if (value <= 0)
+                {
+                    _currentHealth = 0;
+                }
+                else _currentHealth = value;
+            }
+        }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Armor { get => _armor; set => _armor = value; }
 
         IBattleUnitWeapon currentWeapon;
 
-        public void Attack(IUnit unit)
+        public void Attack(IMovableUnit unit)
         {
-            Random rnd = new Random();
-            var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
-            Console.WriteLine($"Footman inflicted {currentDamage}");
-            unit.GetWound(currentDamage);
-            //unit.CurrentHealth -= currentDamage;
+            if (currentWeapon != null)
+            {
+                Random rnd = new Random();
+                var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
+                Console.WriteLine($"Footman inflicted {currentDamage}");
+                unit.GetWound(currentDamage);
+            }
+            
         }
 
         public void Move()
@@ -40,8 +58,8 @@ namespace Units
         public void StoneSkin()
         {
             Armor += 10;
-            CurrentHealth += 30;
             MaxHealth += 30;
+            CurrentHealth += 30;
         }
 
         public void UnitInfo()
@@ -54,10 +72,9 @@ namespace Units
             currentWeapon = newWeapon;
         }
 
-        public void GetWound(double currentDamage)
+        public void GetWound(double damage)
         {
-            CurrentHealth -= currentDamage;
-            UnitInfo();
+            CurrentHealth -= damage;
         }
     }
 }

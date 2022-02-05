@@ -9,9 +9,30 @@ namespace Units
 {
     class Shaman : Unit, IMovableUnit, IBufable
     {
+        public Shaman(double currentHealth, double maxHealth)
+        {
+            _currentHealth = currentHealth;
+            _maxHealth = maxHealth;
+        }
+
         public int WalkingSpeed => throw new NotImplementedException();
 
-        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double CurrentHealth
+        {
+            get => _currentHealth;
+            set
+            {
+                if (value >= MaxHealth)
+                {
+                    _currentHealth = MaxHealth;
+                }
+                else if (value <= 0)
+                {
+                    _currentHealth = 0;
+                }
+                else _currentHealth = value;
+            }
+        }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public void Move()
@@ -34,6 +55,11 @@ namespace Units
         {
             CurrentHealth += 30;
             MaxHealth += 30;
+        }
+
+        public void GetWound(double damage)
+        {
+            CurrentHealth -= damage;
         }
     }
 }

@@ -7,8 +7,6 @@ namespace UnitImplementation
         public double CurrentHealth { get; set; }
         public double MaxHealth { get; set; }
 
-        public void GetWound(double damage);
-
         void UnitInfo();
 
         

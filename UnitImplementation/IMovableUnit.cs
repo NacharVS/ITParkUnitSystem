@@ -11,5 +11,7 @@ namespace UnitImplementation
         
         int WalkingSpeed { get;  }
         void Move();
+
+        public void GetWound(double damage);
     }
 }

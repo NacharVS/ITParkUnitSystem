@@ -12,13 +12,28 @@ namespace Units
     {
         public Blacksmith(double currentHealth, double maxHealth)
         {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
+            _currentHealth = currentHealth;
+            _maxHealth = maxHealth;
         }
 
         public int WalkingSpeed { get => 5; }
 
-        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double CurrentHealth
+        {
+            get => _currentHealth;
+            set
+            {
+                if (value >= MaxHealth)
+                {
+                    _currentHealth = MaxHealth;
+                }
+                else if (value <= 0)
+                {
+                    _currentHealth = 0;
+                }
+                else _currentHealth = value;
+            }
+        }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public void Move()
@@ -28,8 +43,8 @@ namespace Units
 
         public void StoneSkin()
         {
-            CurrentHealth += 30;
             MaxHealth += 30;
+            CurrentHealth += 30;
         }
 
         public Halberd ProductionHalberd()
@@ -45,6 +60,11 @@ namespace Units
         public void UnitInfo()
         {
             Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth}");
+        }
+
+        public void GetWound(double damage)
+        {
+            CurrentHealth -= damage;
         }
     }
 }

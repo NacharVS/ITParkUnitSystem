@@ -24,9 +24,9 @@ namespace Units
             return new Blacksmith(35, 35);
         }
 
-        public Footman CreateFootman()
+        public Footman CreateFootman(IBattleUnitWeapon weapon)
         {
-            return new Footman(60, 60, new IronShortSword());
+            return new Footman(60, 60, weapon);
         }
 
         public void UnitInfo()

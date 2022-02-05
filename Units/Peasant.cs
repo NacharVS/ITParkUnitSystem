@@ -11,13 +11,33 @@ namespace Units
     {
         public Peasant(double currentHealth, double maxHealth)
         {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
+            _currentHealth = currentHealth;
+            _maxHealth = maxHealth;
         }
 
-        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double CurrentHealth
+        {
+            get => _currentHealth;
+            set
+            {
+                if (value >= MaxHealth)
+                {
+                    _currentHealth = MaxHealth;
+                }
+                else if (value <= 0)
+                {
+                    _currentHealth = 0;
+                }
+                else _currentHealth = value;
+            }
+        }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int WalkingSpeed { get => 5;  }
+
+        public void GetWound(double damage)
+        {
+            CurrentHealth -= damage;
+        }
 
         public void Move()
         {
@@ -26,8 +46,8 @@ namespace Units
 
         public void StoneSkin()
         {
-            CurrentHealth += 30;
             MaxHealth += 30;
+            CurrentHealth += 30;
         }
 
         public void UnitInfo()
