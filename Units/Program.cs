@@ -16,29 +16,33 @@ namespace Units
             blacksmith.Move();
             shaman.Buff(blacksmith);
             blacksmith.UnitInfo();
-            var halberd = blacksmith.ProductionHalberd();
-            var ironShortSword = blacksmith.ProductionHalberd();
+
+            ArcherTower archerTower = new ArcherTower();
+
+            var ironShortSword = blacksmith.ProductionIronShortSword();
             var shortbow = blacksmith.ProductionShortBow();
-            var longBow = blacksmith.ProductionLongBow();
 
-            var archer = castle.CreateArcher(ironShortSword, shortbow);
+            var footman1 = castle.CreateFootman(ironShortSword);
+            
 
-            var footman1 = castle.CreateFootman(halberd);
+
+            var archer1 = castle.CreateArcher(ironShortSword, shortbow);
+            var archer2 = castle.CreateArcher(ironShortSword, shortbow);
+            var archer3 = castle.CreateArcher(ironShortSword, shortbow);
+            var archer4 = castle.CreateArcher(ironShortSword, shortbow);
+
+            archerTower.ReloadBuilding(archer1);
+            archerTower.ReloadBuilding(archer2);
+            archerTower.ReloadBuilding(archer3);
+            archerTower.ReloadBuilding(archer4);
+
+            archerTower.DistanceAttack(footman1);
+
+
+           
             footman1.UnitInfo();
 
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
-            archer.DistanceAttack(footman1);
 
-            footman1.UnitInfo();
 
 
 

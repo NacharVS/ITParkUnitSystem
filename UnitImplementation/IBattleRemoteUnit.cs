@@ -8,6 +8,8 @@ namespace UnitImplementation
 {
     public interface IBattleRemoteUnit
     {
+        int CurrentDamage();
+
         void DistanceAttack(IMovableUnit unit);
 
         void ChangeRemoteWeapon(IBattleUnitRemoteWeapon newBow);
