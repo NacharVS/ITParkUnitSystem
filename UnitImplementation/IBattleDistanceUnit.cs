@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-    public interface IBattleUnitWeapon
+    interface IBattleDistanceUnit
     {
-        public int MinDamage { get; }
-        public int MaxDamage { get;}
+        void DistanceAttack(IMovableUnit unit);
+
+        void ChangeBow(IBattleUnitBow newBow);
     }
 }
