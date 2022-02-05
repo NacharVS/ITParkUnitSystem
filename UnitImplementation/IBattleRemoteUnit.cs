@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-    public interface IBattleUnitArrow
+    public interface IBattleRemoteUnit
     {
-        public int Arrow { get; set; }
-        public int MaxArrow { get; set; }
+        void DistanceAttack(IMovableUnit unit);
+
+        void ChangeRemoteWeapon(IBattleUnitRemoteWeapon newBow);
     }
 }

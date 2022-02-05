@@ -7,11 +7,17 @@ using UnitImplementation;
 
 namespace Units.BattleUnitsItems
 {
-    class LongBow : IBattleUnitBow, IBattleUnitArrow
+    class LongBow : IBattleUnitRemoteWeapon
     {
         private int _arrow;
 
         private int _maxArrow;
+
+        public LongBow(int maxArrow)
+        {
+            _maxArrow = maxArrow;
+            _arrow = maxArrow;
+        }
 
         public int MinDamage => 8;
 

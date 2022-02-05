@@ -56,6 +56,14 @@ namespace Units
         {
             return new IronShortSword();
         }
+        public ShortBow ProductionShortBow()
+        {
+            return new ShortBow(10);
+        }
+        public LongBow ProductionLongBow()
+        {
+            return new LongBow(10);
+        }
 
         public void UnitInfo()
         {

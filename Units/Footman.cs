@@ -6,6 +6,10 @@ namespace Units
 {
     class Footman : Unit, IMovableUnit, IBattleUnit, IBufable
     {
+        private int _armor;
+
+        IBattleUnitWeapon currentWeapon;
+
         public Footman(double currentHealth, double maxHealth, IBattleUnitWeapon weaponParameter)
         {
             _currentHealth = currentHealth;
@@ -13,10 +17,7 @@ namespace Units
             currentWeapon = weaponParameter;
         }
 
-
-        private int _armor;
         public int WalkingSpeed => 6;
-
         public double CurrentHealth
         {
             get => _currentHealth;
@@ -35,9 +36,6 @@ namespace Units
         }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Armor { get => _armor; set => _armor = value; }
-
-        IBattleUnitWeapon currentWeapon;
-
         public void Attack(IMovableUnit unit)
         {
             if (currentWeapon != null)

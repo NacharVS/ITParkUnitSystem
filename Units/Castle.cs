@@ -29,6 +29,11 @@ namespace Units
             return new Footman(60, 60, weapon);
         }
 
+        public Archer CreateArcher(IBattleUnitWeapon weapon, IBattleUnitRemoteWeapon remoteWeapon)
+        {
+            return new Archer(40, 40, weapon, remoteWeapon);
+        }
+
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");

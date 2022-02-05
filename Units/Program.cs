@@ -18,16 +18,44 @@ namespace Units
             blacksmith.UnitInfo();
             var halberd = blacksmith.ProductionHalberd();
             var ironShortSword = blacksmith.ProductionHalberd();
+            var shortbow = blacksmith.ProductionShortBow();
+            var longBow = blacksmith.ProductionLongBow();
 
-            var footman1 = castle.CreateFootman(ironShortSword);
+            var archer = castle.CreateArcher(ironShortSword, shortbow);
+
+            var footman1 = castle.CreateFootman(halberd);
             footman1.UnitInfo();
-            var footman2 = castle.CreateFootman(halberd);
-            footman2.UnitInfo();
-            footman1.Attack(footman2);
-            footman2.UnitInfo();
-            footman2.Attack(footman1);
+
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+            archer.DistanceAttack(footman1);
+
             footman1.UnitInfo();
-            
+
+
+
+
+
+
+
+
+
+
+            //var footman2 = castle.CreateFootman(halberd);
+            //footman2.UnitInfo();
+            //footman1.Attack(footman2);
+            //footman2.UnitInfo();
+            //footman2.Attack(footman1);
+            //footman1.UnitInfo();
+
 
 
             //var building1 = new Church();
