@@ -8,6 +8,9 @@ namespace Units
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("it runs");
+
+
             var building1 = new Church();
             var building2 = new Castle();
             var shamanBoris = new Shaman();
