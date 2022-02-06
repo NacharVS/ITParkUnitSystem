@@ -13,11 +13,11 @@ namespace Units
         {
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
-            weapon = weaponParametr;
+            currentWeapon = weaponParametr;
         }
         private double _armor;
         public int WalkingSpeed => 6;
-        IBattleUnitWeapon weapon;
+        IBattleUnitWeapon currentWeapon;
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Damage { get => 7; set => throw new NotImplementedException(); }
@@ -31,9 +31,9 @@ namespace Units
         public void Attack(IUnit unit)
         {
             var rnd=new Random();
-            var currentDamage = rnd.Next(weapon.MinDamage, weapon.MaxDamage);
-            unit.CurrentHealth-=Damage;
-            Console.WriteLine($"Footman inflicted {Damage}");
+            var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
+            unit.CurrentHealth -= currentDamage;
+            Console.WriteLine($"{GetType().Name} inflicted {currentDamage} damage to {unit.GetType().Name}");
             unit.UnitInfo();
         }
         public void Move()
@@ -42,7 +42,7 @@ namespace Units
         }
         public void UnitInfo()
         {
-            Console.WriteLine($"health {CurrentHealth} maxHealth {MaxHealth} damage { Damage} stone {Armor}");
+            Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} damage { Damage} armor {Armor}");
         }
         public void StoneSkin()
         {
@@ -52,6 +52,11 @@ namespace Units
         }
 
         public void IUnit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ChangeWeapon(IBattleUnitWeapon weapon)
         {
             throw new NotImplementedException();
         }

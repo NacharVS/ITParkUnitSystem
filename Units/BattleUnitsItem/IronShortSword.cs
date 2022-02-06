@@ -7,7 +7,7 @@ using UnitImplementation;
 
 namespace Units.BattleUnitsItem
 {
-    internal class IronSword : IBattleUnitWeapon
+    internal class IronShortSword : IBattleUnitWeapon
     {
         public int MinDamage => 2;
 

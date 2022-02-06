@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnitImplementation;
+using Units.BattleUnitsItem;
 
 namespace Units
 {
-    class Church : Unit, IBuilding
+    class Forge : Unit, IBuilding
     {
-        public double Wall => 300;
+        public double Wall => throw new NotImplementedException();
 
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public void UnitInfo()
         {
-            Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
+            throw new NotImplementedException();
         }
 
-        public void Blessing(IMovableUnit unit)
+        public IronShortSword CreateIronSword()
         {
-            unit.MaxHealth += unit.MaxHealth * 0.5;//unitMaxhealth = unit maxhealth + unitmaxHealth*0.5
-            Console.WriteLine($"{GetType().Name} casting Blessing (+50%HP) on {unit.GetType().Name}");
+            return new IronShortSword();
         }
     }
 }

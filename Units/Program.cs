@@ -1,5 +1,6 @@
 ﻿using System;
 using UnitImplementation;
+using Units.BattleUnitsItem;
 
 namespace Units
 {
@@ -10,16 +11,20 @@ namespace Units
             var building1 = new Church();
             var building2 = new Castle();
             var shamanBoris = new Shaman();
-            var weaponNew=new IBattleUnitWeapon();
+            var weaponNew = new Halberd();
             var unit = building2.CreatePeasant();
             var unit2 = building2.CreateFootman();
             unit.UnitInfo();
             building1.Blessing(unit);
             unit.UnitInfo();
+            
             unit2.Attack(unit);
             unit.UnitInfo();
             shamanBoris.Buff(unit);
             unit.UnitInfo();
+
+            //shamanBoris.Buff(shamanBoris);
+            //shamanBoris.UnitInfo();
         }
     }
 }

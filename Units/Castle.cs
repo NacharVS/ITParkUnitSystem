@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnitImplementation;
+using Units.BattleUnitsItem;
 
 namespace Units
 {
@@ -19,11 +20,11 @@ namespace Units
         }
         public Footman CreateFootman()
         {
-            return new Footman(60, 60, new IronSword());
+            return new Footman(60, 60, new IronShortSword());
         }
         public void UnitInfo()
         {
-            Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
+            Console.WriteLine($"{GetType().Name} health - {CurrentHealth} wall - {Wall}");
         }
         public void ChangeWeapon(IBattleUnitWeapon weapon)
         {

@@ -32,7 +32,7 @@ namespace Units
 
         public void UnitInfo()
         {
-            Console.WriteLine($"health {CurrentHealth} maxHealth {MaxHealth}");
+            Console.WriteLine($"   {GetType().Name} health {CurrentHealth} maxHealth {MaxHealth}");
         }
     }
 }
