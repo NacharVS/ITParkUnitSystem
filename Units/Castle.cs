@@ -19,9 +19,14 @@ namespace Units
             return new Peasant(30, 30);
         }
 
-        public Footman CreateFootman()
+        public Footman CreateFootman(IBattleUnitWeapon weapon)
         {
-            return new Footman(60, 60, new IronShortSword());
+            return new Footman(60, 60, weapon);
+        }
+
+        public Archer CreateArcher()
+        {
+            return new Archer(new ShortBow(3));
         }
 
         public void UnitInfo()

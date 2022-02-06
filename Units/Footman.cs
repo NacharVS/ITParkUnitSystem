@@ -10,7 +10,7 @@ namespace Units
         {
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
-            currentWeapon = weaponParameter;
+            _currentWeapon = weaponParameter;
         }
 
 
@@ -21,12 +21,12 @@ namespace Units
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Armor { get => _armor; set => _armor = value; }
 
-        IBattleUnitWeapon currentWeapon;
+        private IBattleUnitWeapon _currentWeapon;
 
         public void Attack(IUnit unit)
         {
             Random rnd = new Random();
-            var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
+            var currentDamage = rnd.Next(_currentWeapon.MinDamage, _currentWeapon.MaxDamage);
             Console.WriteLine($"Footman inflicted {currentDamage}");
             unit.CurrentHealth -= currentDamage;
             unit.UnitInfo();
@@ -51,7 +51,7 @@ namespace Units
 
         public void ChangeWeapon(IBattleUnitWeapon newWeapon)
         {
-            currentWeapon = newWeapon;
+            _currentWeapon = newWeapon;
         }
     }
 }

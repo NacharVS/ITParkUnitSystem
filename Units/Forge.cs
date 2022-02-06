@@ -22,7 +22,7 @@ namespace Units
 
         public IronShortSword CreateIronSword()
         {
-            return new IronShortSword();
+            return new IronShortSword(2, 6);
         }
     }
 }
