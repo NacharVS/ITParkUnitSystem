@@ -54,22 +54,17 @@ namespace Units
 
         }
 
-        public int CurrentDamage()
-        {
-            Random rnd = new Random();
-            var currentDamage = rnd.Next(currentRemoteWeapon.MinDamage, currentRemoteWeapon.MaxDamage);
-            return currentDamage;
-        }
-
         public void DistanceAttack(IMovableUnit unit)
         {
             if (currentRemoteWeapon != null)
             {
                 if (currentRemoteWeapon.Arrow > 0)
                 {
+                    Random rnd = new Random();
+                    var currentDamage = rnd.Next(currentRemoteWeapon.MinDamage, currentRemoteWeapon.MaxDamage);
                     currentRemoteWeapon.Arrow -= 1;
-                    Console.WriteLine($"{GetType().Name} shoots with a bow {CurrentDamage()}");
-                    unit.GetWound(CurrentDamage());
+                    Console.WriteLine($"{GetType().Name} shoots with a bow {currentDamage}");
+                    unit.GetWound(currentDamage);
                 }
                 else Console.WriteLine("Arrow is run out.");
             }

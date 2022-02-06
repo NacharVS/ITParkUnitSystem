@@ -36,23 +36,16 @@ namespace Units
             throw new NotImplementedException();
         }
 
-        public int CurrentDamage()
-        {
-            int currentDamage = 0;
-            foreach (var item in garrisonArchers)
-            {
-                currentDamage += item.CurrentDamage();
-            }
-            return currentDamage;
-        }
-
         public void DistanceAttack(IMovableUnit unit)
         {
             if (garrisonArchers.Count() > 0)
             {
-               Console.WriteLine($"{GetType().Name} shoots with a bow {CurrentDamage()}");
-               unit.GetWound(CurrentDamage());
+                foreach (var item in garrisonArchers)
+                {
+                    item.DistanceAttack(unit);
+                }
             }
+
             else Console.WriteLine("Garrison empty.");
         }
 
