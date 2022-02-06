@@ -1,22 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnitImplementation;
 
-
-namespace Units
+namespace Units 
 {
-    class Footman : Unit, IMovableUnit, IBattleUnit, IBufable
+    internal class Archer : Unit, IMovableUnit, IBattleUnit, IBufable
     {
-        public Footman(double currentHealth, double maxHealth, IBattleUnitWeapon weaponParameter)
+        List<IBattleUnitWeapon> weapons = new List<IBattleUnitWeapon>();
+        public Archer(double currentHealth, double maxHealth, IBattleUnitWeapon weaponParameter)
         {
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
             currentWeapon = weaponParameter;
+            weapons.Add(weaponParameter);
         }
-
-
-        private int _armor;
         public int WalkingSpeed => 6;
 
+        private int _armor;
+        
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Armor { get => _armor; set => _armor = value; }
@@ -33,11 +37,18 @@ namespace Units
                 unit.CurrentHealth -= currentDamage;
                 unit.UnitInfo();
             }
+            
+        }
+
+        public void ChangeWeapon(IBattleUnitWeapon newWeapon)
+        {
+            currentWeapon = newWeapon;
+            weapons.Add(newWeapon);
         }
 
         public void Move()
         {
-            Console.WriteLine($"Footman moving with {WalkingSpeed}");
+            Console.WriteLine($"Archer moving with {WalkingSpeed}");
         }
 
         public void StoneSkin()
@@ -49,12 +60,7 @@ namespace Units
 
         public void UnitInfo()
         {
-            Console.WriteLine($"Footmans health {CurrentHealth} maxHealth {MaxHealth} armor {Armor}");
-        }
-
-        public void ChangeWeapon(IBattleUnitWeapon newWeapon)
-        {
-            currentWeapon = newWeapon;
+            Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth}");
         }
     }
 }

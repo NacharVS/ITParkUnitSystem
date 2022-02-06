@@ -24,6 +24,12 @@ namespace Units
             return new Footman(60, 60, new IronShortSword());
         }
 
+        public Archer CreateArcher()
+        {
+            return new Archer(60, 60, new Halberd());
+            
+        }
+
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");

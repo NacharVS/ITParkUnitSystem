@@ -28,6 +28,18 @@ namespace Units
             var smith = building3.CreateBlacksmith();
             smith.UnitInfo();
             smith.CreateIronShortSword();
+            Console.WriteLine();
+
+            var archer1 = building2.CreateArcher();
+            var archer2 = building2.CreateArcher();
+            var archer3 = building2.CreateArcher();
+            var archerTower = new ArcherTower();
+            archerTower.LoadArchers(archer1);
+            archerTower.LoadArchers(archer2);
+            archerTower.LoadArchers(archer3);
+
+            archerTower.Attack(unit2);
+
         }
     }
 }
