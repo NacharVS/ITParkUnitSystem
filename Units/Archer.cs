@@ -8,7 +8,7 @@ using Units.BattleUnitsItem;
 
 namespace Units
 {
-    internal class Archer : Unit, IBattleUnit,IBuffable
+    internal class Archer : Unit, IBattleUnit,IBuffable,IRangeUnit
     {
         IRangeWeapon _rangeWeapon;
         IBattleUnitWeapon _extraWeapon=new IronShortSword();

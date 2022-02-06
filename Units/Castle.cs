@@ -14,10 +14,10 @@ namespace Units
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public double Wall { get => 1000; }
 
-        public Archer CreateArcher(IRangeWeapon rangeWeapon)
+        public Archer CreateArcher()
         {
             Console.WriteLine($"{GetType().Name} create the Archer");
-            return new Archer(rangeWeapon);
+            return new Archer(new ShortBow(3));
         }
         public Blacksmith CreateBlacksmith()
         {

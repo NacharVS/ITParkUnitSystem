@@ -12,7 +12,7 @@ namespace Units
             var building2 = new Castle();
             var shamanBoris = new Shaman();
             var weaponNew = new Halberd();
-            var rangeUnit = building2.CreateArcher(ShortBow(3));
+            var rangeUnit = building2.CreateArcher();
 
             var unit = building2.CreatePeasant();
             unit.UnitInfo();
@@ -21,9 +21,12 @@ namespace Units
             
             building1.Blessing(unit);
             unit.UnitInfo();
+            var blackSmith1 = building2.CreateBlacksmith();
+            blackSmith1.UnitInfo();
+            blackSmith1.CreateIronShortSword();
             
+            //лекция 06.02.2022
             unit2.Attack(unit);
-            //unit.UnitInfo();
             shamanBoris.Buff(unit);
             unit.UnitInfo();
             rangeUnit.Attack(unit);
@@ -31,9 +34,14 @@ namespace Units
             rangeUnit.Attack(unit);
             rangeUnit.Attack(unit);
 
-            var blackSmith1 = building2.CreateBlacksmith();
-            blackSmith1.UnitInfo();
-            blackSmith1.CreateIronShortSword();
+            var archerTower = new ArcherTower();
+            archerTower.LoadRangeUnit(rangeUnit);
+            archerTower.LoadRangeUnit(rangeUnit);
+            archerTower.LoadRangeUnit(rangeUnit);
+            archerTower.LoadRangeUnit(rangeUnit);
+            unit.UnitInfo();
+            archerTower.Attack(unit,5);
+            unit.UnitInfo();
 
             //shamanBoris.Buff(shamanBoris);
             //shamanBoris.UnitInfo();
