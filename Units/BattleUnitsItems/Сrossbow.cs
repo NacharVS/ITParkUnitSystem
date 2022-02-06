@@ -12,12 +12,19 @@ namespace Units.BattleUnitsItems
         private int _arrow;
 
         private int _maxArrow;
+
+        public Сrossbow(int maxArrow)
+        {
+            _arrow = maxArrow;
+            _maxArrow = maxArrow;
+        }
+
         public int MinDamage => 5;
 
         public int MaxDamage => 8;
 
         public int Arrow { get => _arrow; set => _arrow = value; }
 
-        public int MaxArrow { get => _maxArrow; };
+        public int MaxArrow { get => _maxArrow; }
     }
 }
