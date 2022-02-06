@@ -25,6 +25,6 @@ namespace Units.BattleUnitsItems
 
         public int Arrow { get => _arrow; set => _arrow = value; }
 
-        public int MaxArrow { get => _maxArrow; set => _maxArrow = value; }
+        public int MaxArrow { get => _maxArrow; }
     }
 }
