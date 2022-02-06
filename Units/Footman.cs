@@ -42,7 +42,7 @@ namespace Units
         }
         public void UnitInfo()
         {
-            Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} damage { Damage} armor {Armor}");
+            Console.WriteLine($"   {GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} damage { Damage} armor {Armor}");
         }
         public void StoneSkin()
         {

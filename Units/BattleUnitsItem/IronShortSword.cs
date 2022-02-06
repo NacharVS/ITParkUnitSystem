@@ -10,7 +10,6 @@ namespace Units.BattleUnitsItem
     internal class IronShortSword : IBattleUnitWeapon
     {
         public int MinDamage => 2;
-
         public int MaxDamage => 6;
     }
 }

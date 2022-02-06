@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-    public interface IBattleUnitWeapon
+    public interface IRangeWeapon:IBattleUnitWeapon
     {
-        public int MinDamage { get; }
-        public int MaxDamage { get; }
-
+        public int Ammunition { get; set; }
     }
 }

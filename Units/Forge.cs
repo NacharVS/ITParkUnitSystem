@@ -20,9 +20,9 @@ namespace Units
             throw new NotImplementedException();
         }
 
-        public IronShortSword CreateIronSword()
-        {
-            return new IronShortSword();
-        }
+        //public IronShortSword CreateIronSword()
+        //{
+        //    return new IronShortSword();
+        //}
     }
 }
