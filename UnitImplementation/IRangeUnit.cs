@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-    public interface IRangeUnit:IUnit
+    public interface IRangeUnit : IUnit
     {
         void Attack(IUnit unit);
+        public IRangeWeapon {get;set }
     }
 }

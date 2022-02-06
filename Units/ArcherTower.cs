@@ -9,7 +9,7 @@ namespace Units
 {
     internal class ArcherTower : Unit, IBuilding
     {
-        private List<IRangeUnit> _garrison; //от 1 до 10 стрелков. Атака, если хотя бы 1 стрелок. Атака складывается из кол-ва стрелков.
+        private List<IRangeUnit> _garrison=new List<IRangeUnit>(); //от 1 до 10 стрелков. Атака, если хотя бы 1 стрелок. Атака складывается из кол-ва стрелков.
 
         public ArcherTower()
         {
@@ -42,9 +42,9 @@ namespace Units
             }
             return totalDamage;
         }
-        public void Attack(IUnit unit, int Garrison)
+        public void Attack(IUnit unit)
         {
-            if (Garrison == null)
+            if (_garrison != null)
             {
                 int multipleDamage = _garrison.Count;
                 var currentDamage = 2 * multipleDamage;

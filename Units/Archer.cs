@@ -8,7 +8,7 @@ using Units.BattleUnitsItem;
 
 namespace Units
 {
-    internal class Archer : Unit, IBattleUnit,IBuffable,IRangeUnit
+    internal class Archer : Unit, IBattleUnit,IBuffable,IRangeUnit,IRangeWeapon
     {
         IRangeWeapon _rangeWeapon;
         IBattleUnitWeapon _extraWeapon=new IronShortSword();
@@ -22,6 +22,12 @@ namespace Units
         public int WalkingSpeed => 8;
         public double CurrentHealth { get => _currentHealth; set => _currentHealth=value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth=value; }
+        public int Ammunition { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int RangeDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public int MinDamage => throw new NotImplementedException();
+
+        public int MaxDamage => throw new NotImplementedException();
 
         public void Attack(IUnit unit)
         {

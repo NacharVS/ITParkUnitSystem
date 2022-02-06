@@ -13,6 +13,10 @@ namespace Units
             var shamanBoris = new Shaman();
             var weaponNew = new Halberd();
             var rangeUnit = building2.CreateArcher();
+            var rangeUnit2 = building2.CreateArcher();
+            var rangeUnit3 = building2.CreateArcher();
+            var rangeUnit4 = building2.CreateArcher();
+            var rangeUnit5 = building2.CreateArcher();
 
             var unit = building2.CreatePeasant();
             unit.UnitInfo();
@@ -36,11 +40,13 @@ namespace Units
 
             var archerTower = new ArcherTower();
             archerTower.LoadRangeUnit(rangeUnit);
-            archerTower.LoadRangeUnit(rangeUnit);
-            archerTower.LoadRangeUnit(rangeUnit);
-            archerTower.LoadRangeUnit(rangeUnit);
+            archerTower.LoadRangeUnit(rangeUnit2);
+            archerTower.LoadRangeUnit(rangeUnit3);
+            archerTower.LoadRangeUnit(rangeUnit4);
+            archerTower.LoadRangeUnit(rangeUnit5);
+
             unit.UnitInfo();
-            archerTower.Attack(unit,5);
+            archerTower.Attack(unit);
             unit.UnitInfo();
 
             //shamanBoris.Buff(shamanBoris);
