@@ -7,7 +7,7 @@ using UnitImplementation;
 
 namespace Units.BattleUnitsItems
 {
-    class ShortBow : IBattleUnitRemoteWeapon
+    struct ShortBow : IBattleUnitRemoteWeapon
     {
         private int _arrow;
 

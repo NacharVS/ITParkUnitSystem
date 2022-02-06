@@ -16,6 +16,8 @@ namespace Units
             blacksmith.Move();
             shaman.Buff(blacksmith);
             blacksmith.UnitInfo();
+            var crossBow = blacksmith.ProductionCrossBow();
+
 
             ArcherTower archerTower = new ArcherTower();
 
@@ -30,11 +32,13 @@ namespace Units
             var archer2 = castle.CreateArcher(ironShortSword, shortbow);
             var archer3 = castle.CreateArcher(ironShortSword, shortbow);
             var archer4 = castle.CreateArcher(ironShortSword, shortbow);
+            var slinger = castle.CreateSlinger(crossBow);
 
             archerTower.ReloadBuilding(archer1);
             archerTower.ReloadBuilding(archer2);
             archerTower.ReloadBuilding(archer3);
             archerTower.ReloadBuilding(archer4);
+            archerTower.ReloadBuilding(slinger);
 
             archerTower.DistanceAttack(footman1);
 

@@ -65,6 +65,11 @@ namespace Units
             return new LongBow(10);
         }
 
+        public Сrossbow ProductionCrossBow()
+        {
+            return new Сrossbow(10);
+        }
+
         public void UnitInfo()
         {
             Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth}");

@@ -9,7 +9,7 @@ namespace Units
 {
     class ArcherTower : Unit, IBuilding, IInBuilding, IBattleRemoteUnit
     {
-        List<IBattleRemoteUnit> garrisonArchers = new List<IBattleRemoteUnit>();
+        List<IBattleRemoteUnit> garrison = new List<IBattleRemoteUnit>();
         public double Wall => 300;
 
         public double CurrentHealth
@@ -33,9 +33,9 @@ namespace Units
 
         public void DistanceAttack(IMovableUnit unit)
         {
-            if (garrisonArchers.Count() > 0)
+            if (garrison.Count() > 0)
             {
-                foreach (var item in garrisonArchers)
+                foreach (var item in garrison)
                 {
                     item.DistanceAttack(unit);
                 }
@@ -46,7 +46,12 @@ namespace Units
 
         public void ReloadBuilding(IBattleRemoteUnit unit)
         {
-            garrisonArchers.Add(unit);
+            if (garrison.Count() < MaxGarrison)
+            {
+                garrison.Add(unit);
+            }
+            else Console.WriteLine("ArcherTower is fuul.");
+            
         }
 
         public void UnitInfo()

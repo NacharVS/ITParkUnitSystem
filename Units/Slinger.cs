@@ -7,21 +7,15 @@ using UnitImplementation;
 
 namespace Units
 {
-    class Archer : Unit, IMovableUnit, IBattleUnit, IBattleRemoteUnit, IBufable, IChangeRemoteWeapon
+    class Slinger : Unit, IMovableUnit, IBufable, IBattleRemoteUnit
     {
-        private int _armor;
-        private IBattleUnitWeapon currentWeapon;
-        IBattleUnitRemoteWeapon currentRemoteWeapon;
-        
-        public Archer(double currentHealth, double maxHealth, IBattleUnitWeapon weapon, IBattleUnitRemoteWeapon remoteWeapon)
+        private IBattleUnitRemoteSimpleWeapon currentRemoteWeapon;
+        public Slinger(double currentHealth, double maxHealth, IBattleUnitRemoteSimpleWeapon remoteWeapon)
         {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
-            currentWeapon = weapon;
+            _currentHealth = currentHealth;
+            _maxHealth = maxHealth;
             currentRemoteWeapon = remoteWeapon;
         }
-
-        public int WalkingSpeed => 7;
 
         public double CurrentHealth
         {
@@ -40,19 +34,7 @@ namespace Units
             }
         }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
-        public int Armor { get => _armor; set => _armor = value; }
-
-        public void Attack(IMovableUnit unit)
-        {
-            if (currentWeapon != null)
-            {
-                Random rnd = new Random();
-                var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
-                Console.WriteLine($"{GetType().Name} inflicted {currentDamage}");
-                unit.GetWound(currentDamage);
-            }
-
-        }
+        public int WalkingSpeed { get => 5; }
 
         public void DistanceAttack(IMovableUnit unit)
         {
@@ -66,26 +48,11 @@ namespace Units
                     Console.WriteLine($"{GetType().Name} shoots with a bow {currentDamage}");
                     unit.GetWound(currentDamage);
                 }
-                else
-                {
-                    Console.WriteLine("Arrow is run out.");
-                    Attack(unit);
-                }
-
-
-                    
+                else Console.WriteLine("Arrow is run out.");
             }
 
         }
-        public void ChangeWeapon(IBattleUnitWeapon newWeapon)
-        {
-            currentWeapon = newWeapon;
-        }
 
-        public void ChangeRemoteWeapon(IBattleUnitRemoteWeapon newWeapon)
-        {
-            currentRemoteWeapon = newWeapon;
-        }
         public void GetWound(double damage)
         {
             CurrentHealth -= damage;
@@ -98,16 +65,13 @@ namespace Units
 
         public void StoneSkin()
         {
-            Armor += 2;
             MaxHealth += 10;
             CurrentHealth += 10;
         }
 
         public void UnitInfo()
         {
-            Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} armor {Armor}");
+            Console.WriteLine($"Slinger health {CurrentHealth} maxHealth {MaxHealth}");
         }
-
-        
     }
 }

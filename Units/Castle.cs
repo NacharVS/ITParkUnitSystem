@@ -34,6 +34,11 @@ namespace Units
             return new Archer(40, 40, weapon, remoteWeapon);
         }
 
+        public Slinger CreateSlinger(IBattleUnitRemoteSimpleWeapon remoteWeapon)
+        {
+            return new Slinger(30, 30, remoteWeapon);
+        }
+
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");

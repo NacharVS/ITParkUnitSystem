@@ -7,24 +7,24 @@ using UnitImplementation;
 
 namespace Units.BattleUnitsItems
 {
-    class Сrossbow : IBattleUnitRemoteWeapon
+    struct Сrossbow : IBattleUnitRemoteSimpleWeapon
     {
-        private int _arrow;
+        private int _stone;
 
-        private int _maxArrow;
+        private int _maxStone;
 
-        public Сrossbow(int maxArrow)
+        public Сrossbow(int maxstone)
         {
-            _arrow = maxArrow;
-            _maxArrow = maxArrow;
+            _stone = maxstone;
+            _maxStone = maxstone;
         }
 
-        public int MinDamage => 5;
+        public int MinDamage => 1;
 
-        public int MaxDamage => 8;
+        public int MaxDamage => 3;
 
-        public int Arrow { get => _arrow; set => _arrow = value; }
+        public int Arrow { get => _stone; set => _stone = value; }
 
-        public int MaxArrow { get => _maxArrow; }
+        public int MaxArrow { get => _maxStone; }
     }
 }
