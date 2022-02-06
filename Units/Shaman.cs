@@ -9,14 +9,14 @@ namespace Units
 {
     class Shaman : Unit, IMovableUnit, IBufable
     {
-        public int WalkingSpeed => throw new NotImplementedException();
+        public int WalkingSpeed => 7;
 
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public void Move()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Footman moving with {WalkingSpeed}");
         }
 
         public void UnitInfo()

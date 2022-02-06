@@ -10,19 +10,23 @@ namespace Units
 {
     class Forge : Unit, IBuilding
     {
-        public double Wall => throw new NotImplementedException();
+        public double Wall => 500;
 
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public void UnitInfo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
         }
 
-        public IronShortSword CreateIronSword()
+        public Blacksmith CreateBlacksmith()
         {
-            return new IronShortSword();
+            Console.WriteLine($"Blacksmith has been created");
+            return new Blacksmith(30, 30);
+            
         }
+
+        
     }
 }

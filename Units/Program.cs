@@ -8,9 +8,7 @@ namespace Units
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("it runs");
-
-
+            
             var building1 = new Church();
             var building2 = new Castle();
             var shamanBoris = new Shaman();
@@ -25,6 +23,11 @@ namespace Units
             unit.UnitInfo();
             shamanBoris.Buff(shamanBoris);
             shamanBoris.UnitInfo();
+
+            var building3 = new Forge();
+            var smith = building3.CreateBlacksmith();
+            smith.UnitInfo();
+            smith.CreateIronShortSword();
         }
     }
 }
