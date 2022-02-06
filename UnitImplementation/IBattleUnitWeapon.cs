@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-     public interface IMovableUnit : IUnit
+    public interface IBattleUnitWeapon
     {
-        public int WalkingSpeed { get; }
-        public void Move();
+        public int MinDamage { get; }
+        public int MaxDamage { get; }
+
+
     }
 }

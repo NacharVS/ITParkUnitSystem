@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitImplementation
+namespace Units
 {
-    public interface IBuilding:IUnit
+    internal class Outpost
     {
-        public double Wall { get;  }
     }
 }

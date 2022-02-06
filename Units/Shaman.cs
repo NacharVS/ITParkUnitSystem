@@ -7,22 +7,15 @@ using UnitImplementation;
 
 namespace Units
 {
-    public class Peasant : Unit, IMovableUnit, IBufable
+    internal class Shaman : Unit, IMovableUnit, IBufable
     {
-        public Peasant(double currentHealth, double maxHealth)
-        {
-            CurrentHealth=currentHealth;
-            MaxHealth=maxHealth;
-        }
+        public int WalkingSpeed => throw new NotImplementedException();
+
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
-
-        public int WalkingSpeed { get=>5 ; }
-
-        public void StoneSkin()
+        public void Move()
         {
-            CurrentHealth += 30;
-            MaxHealth += 30;
+            throw new NotImplementedException();
         }
 
         public void UnitInfo()
@@ -30,9 +23,16 @@ namespace Units
             Console.WriteLine($"{GetType().Name}: health- {CurrentHealth}, maxHealth- {MaxHealth}");
         }
 
-        public void Move()
+        public void Buff(IBufable unit)
         {
-            Console.WriteLine($"Peasant moving speed {WalkingSpeed}");
+            Console.WriteLine($"casting stoneSkinSpell");
+            unit.StoneSkin();
+        }
+
+        public void StoneSkin()
+        {
+            CurrentHealth += 30;
+            MaxHealth += 30;
         }
     }
 }

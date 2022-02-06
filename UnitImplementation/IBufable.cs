@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-     public interface IMovableUnit : IUnit
+    public interface IBufable 
     {
-        public int WalkingSpeed { get; }
-        public void Move();
+        void StoneSkin();
     }
 }

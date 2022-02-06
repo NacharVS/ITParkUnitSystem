@@ -7,10 +7,9 @@ using UnitImplementation;
 
 namespace Units
 {
-    public class Unit 
+    public class IronShortSword : IBattleUnitWeapon
     {
-        internal double _currentHealth;
-        internal double _maxHealth;
-
+        public int MinDamage => 2;
+        public int MaxDamage => 6;
     }
 }

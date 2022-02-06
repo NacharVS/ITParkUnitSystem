@@ -7,10 +7,10 @@ using UnitImplementation;
 
 namespace Units
 {
-    public class Unit 
+    public class Halberd : IBattleUnitWeapon
     {
-        internal double _currentHealth;
-        internal double _maxHealth;
+        public int MinDamage => 1;
 
+        public int MaxDamage => 30;
     }
 }

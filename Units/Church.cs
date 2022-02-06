@@ -16,12 +16,13 @@ namespace Units
 
         public void UnitInfo()
         {
-            Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
+            Console.WriteLine($"{GetType().Name}: health - {CurrentHealth}, wall - {Wall}");
         }
 
         public static void Blessing(IMovableUnit unit)
         {
-            unit.MaxHealth += unit.MaxHealth * 0.5;//unitMaxhealth = unit maxhealth + unitmaxHealth*0.5
+            unit.MaxHealth += unit.MaxHealth * 0.5;
+
         }
     }
 }
