@@ -7,15 +7,23 @@ using UnitImplementation;
 
 namespace Units
 {
-    internal class Shooter : Unit, IUnit, IMovableUnit, IBattleUnit, IBufable
+   public class Shooter : Unit, IUnit, IMovableUnit, IBattleUnit, IBufable
     {
-        public double CurrentHealth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double MaxHealth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int WalkingSpeed => 5;
 
-        public int WalkingSpeed => throw new NotImplementedException();
+        private int _armor;
+        public int Armor { get => _armor; set => _armor = value; }
 
-        public int Armor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+       
+        IBattleUnitWeapon currentWeapon;
+        public Shooter(double currentHealth, double maxHealth, IBattleUnitWeapon weaponParameter)
+        {
+            CurrentHealth = currentHealth;
+            MaxHealth = maxHealth;
+            currentWeapon = weaponParameter;
+        }
         public void Attack(IUnit unit)
         {
             throw new NotImplementedException();

@@ -25,5 +25,10 @@ namespace Units
         {
             return new Halberd();
         }
+
+        public BowAndArrows CreateBowAndArrows()
+        {
+            return new BowAndArrows();
+        }
     }
 }

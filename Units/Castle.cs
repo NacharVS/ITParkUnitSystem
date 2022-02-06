@@ -18,9 +18,18 @@ namespace Units
             return new Peasant(30, 30);
         }
 
+
+        public Archer CreateArcher()
+        {
+            return new Archer (50, 60, new BowAndArrows());
+        }
         public Footman CreateFootman()
         {
             return new Footman(60, 60, new IronShortSword());
+        }
+        public Shooter CreateShooter()
+        {
+            return new Shooter(60, 60, new IronShortSword());
         }
         public void UnitInfo()
         {
