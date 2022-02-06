@@ -31,11 +31,6 @@ namespace Units
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int MaxGarrison => 10;
 
-        public void ChangeRemoteWeapon(IBattleUnitRemoteWeapon newBow)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DistanceAttack(IMovableUnit unit)
         {
             if (garrisonArchers.Count() > 0)

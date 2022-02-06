@@ -7,7 +7,7 @@ using UnitImplementation;
 
 namespace Units
 {
-    class Archer : Unit, IMovableUnit, IBattleUnit, IBattleRemoteUnit, IBufable
+    class Archer : Unit, IMovableUnit, IBattleUnit, IBattleRemoteUnit, IBufable, IChangeRemoteWeapon
     {
         private int _armor;
         IBattleUnitWeapon currentWeapon;

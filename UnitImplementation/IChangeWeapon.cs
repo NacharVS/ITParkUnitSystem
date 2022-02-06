@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace UnitImplementation
 {
-    public interface IBattleRemoteUnit
+    public interface IChangeWeapon
     {
-        void DistanceAttack(IMovableUnit unit);
-
-        
+        void ChangeWeapon(IBattleUnitWeapon newWeapon);
     }
 }

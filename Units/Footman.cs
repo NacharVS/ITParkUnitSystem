@@ -4,7 +4,7 @@ using UnitImplementation;
 
 namespace Units
 {
-    class Footman : Unit, IMovableUnit, IBattleUnit, IBufable
+    class Footman : Unit, IMovableUnit, IBattleUnit, IBufable, IChangeWeapon
     {
         private int _armor;
 
