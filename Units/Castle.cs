@@ -21,9 +21,13 @@ namespace Units
 
         public Footman CreateFootman()
         {
-            return new Footman(60, 60, new IronShortSword());
+            return new Footman(60, 60, new Knife());
         }
 
+        public Master CreateMaster()
+        {
+            return new Master(30, 20);
+        }
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");

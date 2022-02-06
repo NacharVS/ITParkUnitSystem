@@ -11,17 +11,22 @@ namespace Units
             var building1 = new Church();
             var building2 = new Castle();
             var shamanBoris = new Shaman();
-            var weaponNew = new Halberd();
             var unit = building2.CreatePeasant();
             var unit2 = building2.CreateFootman();
-            unit.UnitInfo();
-            building1.Blessing(unit);
-            unit.UnitInfo();
+            var unit3 = building2.CreateMaster();
             
-            unit2.Attack(unit);
+            var weapon1 = unit3.CreateKnife();
+            unit2.ChangeWeapon(weapon1);
             unit.UnitInfo();
-            shamanBoris.Buff(shamanBoris);
-            shamanBoris.UnitInfo();
+            unit2.UnitInfo();
+            unit3.UnitInfo();
+            //building1.Blessing(unit);
+            //unit.UnitInfo();
+
+            unit2.Attack(unit);
+            //unit.UnitInfo();
+            //shamanBoris.Buff(shamanBoris);
+            //shamanBoris.UnitInfo();
         }
     }
 }
