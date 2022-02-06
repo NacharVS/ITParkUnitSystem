@@ -13,6 +13,7 @@ namespace Units
         IRangeWeapon _rangeWeapon;
         IBattleUnitWeapon _extraWeapon = new IronShortSword(2, 6);
 
+        //Комментарий
         public Archer(IRangeWeapon rangeWeapon)
         {
             this._rangeWeapon = rangeWeapon;
