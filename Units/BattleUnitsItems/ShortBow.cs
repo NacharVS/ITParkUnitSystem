@@ -9,14 +9,14 @@ namespace Units.BattleUnitsItems
 {
     class ShortBow : IRangeWeapon
     {
-        private int _arrows;
+        private int _stones;
 
         public ShortBow(int ammunition)
         {
             Ammunition = ammunition;
         }
 
-        public int Ammunition { get => _arrows; set => _arrows = value; }
+        public int Ammunition { get => _stones; set => _stones = value; }
 
         public int MinDamage => 2;
 

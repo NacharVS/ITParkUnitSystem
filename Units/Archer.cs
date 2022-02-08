@@ -8,7 +8,7 @@ using Units.BattleUnitsItems;
 
 namespace Units
 {
-    class Archer : Unit, IBattleUnit, IBufable, IMovableUnit
+    class Archer : Unit, IBattleUnit, IBufable, IMovableUnit, IRangeUnit
     {
         IRangeWeapon _rangeWeapon;
         IBattleUnitWeapon _extraWeapon = new Knife();
@@ -23,6 +23,8 @@ namespace Units
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public int WalkingSpeed => 8;
+
+        public IRangeWeapon RangeWeapon => throw new NotImplementedException();
 
         public void Attack(IUnit unit)
         {
