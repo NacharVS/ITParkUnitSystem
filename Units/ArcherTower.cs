@@ -8,7 +8,7 @@ namespace Units
 {
     class ArcherTower
     {
-        private List</*IRangeUnit*/> garnizon;
+        //private List</*IRangeUnit*/> garnizon;
 
         //1. Переделать интерфейс iRangeWEapon. Добавить свойства rangeDamage, и добавить метода дальней атаки возвращающий урон
         //2 создать итерфейс IRangeUnit, для всех дальнобойных юнитов. Здесь реализовать свойство типа IRangeWeapon, и, метод для атаки

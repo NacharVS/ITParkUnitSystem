@@ -11,7 +11,7 @@ namespace Units
     class Archer : Unit, IBattleUnit, IBufable, IMovableUnit
     {
         IRangeWeapon _rangeWeapon;
-        IBattleUnitWeapon _extraWeapon = new IronShortSword(2, 6);
+        IBattleUnitWeapon _extraWeapon = new Knife();
 
         public Archer(IRangeWeapon rangeWeapon)
         {
