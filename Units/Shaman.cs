@@ -9,6 +9,11 @@ namespace Units
 {
     class Shaman : Unit, IMovableUnit, IBufable
     {
+        public Shaman(double currentHealth, double maxHealth)
+        {
+            CurrentHealth = currentHealth;
+            MaxHealth = maxHealth;
+        }
         public int WalkingSpeed => throw new NotImplementedException();
 
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }

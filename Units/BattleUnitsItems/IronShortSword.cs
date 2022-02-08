@@ -7,29 +7,33 @@ using UnitImplementation;
 
 namespace Units.BattleUnitsItems
 {
-    class IronShortSword : IBattleUnitWeapon
+    struct IronShortSword : IBattleUnitWeapon
     {
-        private int _minDamage;
-        private int _maxDamage;
+        //    private int _minDamage;
+        //    private int _maxDamage;
 
-        public IronShortSword(int minDamage, int maxDamage)
-        {
-            MinDamage = minDamage;
-            _maxDamage = maxDamage;
-        }
+        //    public IronShortSword(int minDamage, int maxDamage)
+        //    {
+        //        MinDamage = minDamage;
+        //        _maxDamage = maxDamage;
+        //    }
 
-        public int MinDamage
-        {
-            get
-            {
-                return _minDamage;
-            }
-            set
-            {
-                _minDamage = value;
-            }
-        }
+        //    public int MinDamage
+        //    {
+        //        get
+        //        {
+        //            return _minDamage;
+        //        }
+        //        set
+        //        {
+        //            _minDamage = value;
+        //        }
+        //    }
 
-        public int MaxDamage => 6;
+        //    public int MaxDamage => 6;
+        //}
+        public int MinDamage => 7;
+
+        public int MaxDamage => 9;
     }
 }

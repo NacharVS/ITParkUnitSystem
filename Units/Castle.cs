@@ -29,6 +29,15 @@ namespace Units
             return new Archer(new ShortBow(3));
         }
 
+        public Master CreateMaster()
+        {
+            return new Master(40, 40);
+        }
+
+        public Shaman CreateShaman()
+        {
+            return new Shaman(15, 15);
+        }
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
