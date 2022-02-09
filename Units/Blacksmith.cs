@@ -39,7 +39,12 @@ namespace Units
         public IronShortSword CreateIronShortSword()
         {
             Console.WriteLine("IronShortSword is created");
-            return new IronShortSword();
+            return new IronShortSword(2, 6);
+        }
+        public Halberd CreateHalberd()
+        {
+            Console.WriteLine("Halberd is created");
+            return new Halberd(); 
         }
     }
 }

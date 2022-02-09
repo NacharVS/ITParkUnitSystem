@@ -7,7 +7,7 @@ using UnitImplementation;
 
 namespace Units
 {
-    internal class ArcherTower : Unit, IBuilding , IBattleUnit
+    internal class ArcherTower : Unit, IBuilding , IBattleUnit, IRangeUnit
 
     {
         private int _armor;
@@ -16,20 +16,21 @@ namespace Units
         public double Wall { get => 1500; }
         public int Armor { get => _armor; set => _armor = value; }
 
-        private List<Archer> archers = new List<Archer>();
+        private List<IRangeUnit> garnizon = new List<IRangeUnit>();
         public bool IsFull { get; set; }
         public bool CanAttack { get; private set; }
+        public IRangeWeapon RangeWeapon { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void LoadArchers(Archer archer)
+        public void LoadRangeUnits(IRangeUnit rangeUnit)
         {
-            if (archers.Count >= 10)
+            if (garnizon.Count >= 10)
             {
                 Console.WriteLine("Tower is full");
                 IsFull = true;
             }
             else
             {
-                archers.Add(archer);
+                garnizon.Add(rangeUnit);
                 CanAttack = true;
             }
 
@@ -38,12 +39,10 @@ namespace Units
 
         public void Attack(IUnit unit)
         {
-            foreach (var item in archers)
-            {
-                item.Attack(unit);
-            }
-            
-            unit.UnitInfo();
+            double currentDamage = this.RangeAttack();
+            Console.WriteLine($"ArcherTower inflicted {currentDamage}");
+            unit.CurrentHealth -= currentDamage;
+            unit.UnitInfo(); 
         }
 
         public void ChangeWeapon(IBattleUnitWeapon newWeapon)
@@ -54,6 +53,16 @@ namespace Units
         public void UnitInfo()
         {
             Console.WriteLine($"health - {CurrentHealth} wall - {Wall}");
+        }
+
+        public double RangeAttack()
+        {
+            double rangeDamage = 0;
+            foreach (var item in garnizon)
+            {
+                if (item.RangeWeapon.Ammunition > 0) rangeDamage += item.RangeAttack();
+            }
+            return rangeDamage;
         }
     }
 }

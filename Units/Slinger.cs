@@ -6,43 +6,33 @@ using System.Threading.Tasks;
 using UnitImplementation;
 using Units.BattleUnitsItems;
 
-namespace Units 
+namespace Units
 {
-    internal class Archer : Unit, IMovableUnit, IRangeUnit, IBufable 
+    internal class Slinger : Unit, IMovableUnit, IRangeUnit, IBufable
     {
-        //List<IBattleUnitWeapon> weapons = new List<IBattleUnitWeapon>();
-
-        IRangeWeapon _rangeWeapon = new ShortBow(3);
+        IRangeWeapon _rangeWeapon = new Slingshot(2);
         IBattleUnitWeapon _extraWeapon = new IronShortSword(2, 6);
         IBattleUnitWeapon currentWeapon;
 
-        
-        private int _armor;
-        public int WalkingSpeed => 8;
 
-        
-        
+        private int _armor;
+        public int WalkingSpeed => 6;
+
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Armor { get => _armor; set => _armor = value; }
         public IRangeWeapon RangeWeapon { get => _rangeWeapon; set => _rangeWeapon = value; }
-                
 
-        public Archer()
+        public Slinger()
         {
             this.currentWeapon = _rangeWeapon;
-            //weapons.Add(_rangeWeapon);
-            //weapons.Add(_extraWeapon);
         }
 
-        public Archer(IRangeWeapon rangeWeapon)
+        public Slinger(IRangeWeapon rangeWeapon)
         {
             _rangeWeapon = rangeWeapon;
             this.currentWeapon = _rangeWeapon;
-            //weapons.Add(_rangeWeapon);
-            //weapons.Add(_extraWeapon);
         }
-
 
 
         public void Attack(IUnit unit)
@@ -68,21 +58,19 @@ namespace Units
         public double RangeAttack()
         {
             double rangeDamage = this.RangeWeapon.RangeAttack();
-
-            Console.WriteLine($"Range Unit - {GetType().Name}  Range damage - {rangeDamage}");
+            Console.WriteLine($"RangeUnit - {GetType().Name} Range damage - {rangeDamage}");
             _rangeWeapon.Ammunition--;
             return rangeDamage;
         }
 
         public void ChangeWeapon(IBattleUnitWeapon newWeapon)
         {
-            currentWeapon = newWeapon;
-            //weapons.Add(newWeapon);
+            currentWeapon = newWeapon;           
         }
 
         public void Move()
         {
-            Console.WriteLine($"Archer moving with {WalkingSpeed}");
+            Console.WriteLine($"Slinger moving with {WalkingSpeed}");
         }
 
         public void StoneSkin()

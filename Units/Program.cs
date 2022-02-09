@@ -12,7 +12,7 @@ namespace Units
             var building1 = new Church();
             var building2 = new Castle();
             var shamanBoris = new Shaman();
-            var weaponNew = new Halberd();
+            //var weaponNew = new Halberd();
             var unit = building2.CreatePeasant();
             var unit2 = building2.CreateFootman();
             unit.UnitInfo();
@@ -24,22 +24,43 @@ namespace Units
             shamanBoris.Buff(shamanBoris);
             shamanBoris.UnitInfo();
 
-            var building3 = new Forge();
-            var smith = building3.CreateBlacksmith();
-            smith.UnitInfo();
-            smith.CreateIronShortSword();
-            Console.WriteLine();
+            //var building3 = new Forge();
+            //var smith = building3.CreateBlacksmith();
+            //smith.UnitInfo();
+            //smith.CreateIronShortSword();
+            //smith.CreateHalberd();
+            //Console.WriteLine();
 
-            var archer1 = building2.CreateArcher();
-            var archer2 = building2.CreateArcher();
+            var archer1 = building2.CreateArcher(1);
+            var archer2 = building2.CreateArcher(2);
             var archer3 = building2.CreateArcher();
+            var slinger1 = building2.CreateSlinger(2);
+            var slinger2 = building2.CreateSlinger(3);
+
             var archerTower = new ArcherTower();
-            archerTower.LoadArchers(archer1);
-            archerTower.LoadArchers(archer2);
-            archerTower.LoadArchers(archer3);
+            archerTower.LoadRangeUnits(archer1);
+            archerTower.LoadRangeUnits(archer2);
+            archerTower.LoadRangeUnits(archer3);
+            archerTower.LoadRangeUnits(slinger1);
+            archerTower.LoadRangeUnits(slinger2);
 
             archerTower.Attack(unit2);
+            archerTower.Attack(unit2);
+            archerTower.Attack(unit2);
+            archerTower.Attack(unit2);  //было в луках по 3 стрелы, не должна атаковать
 
         }
     }
 }
+
+
+//private List</*IRangeUnit*/> garnizon;
+
+//1. Переделать интерфейс iRangeWEapon. Добавить свойства rangeDamage, и добавить метода дальней атаки возвращающий урон
+//2 создать итерфейс IRangeUnit, для всех дальнобойных юнитов. Здесь реализовать свойство типа IRangeWeapon, и, метод для атаки
+//3 перенаследовать дальнобойных юнитов от нового интерфейса и реализовать его
+// 3.5 создать внутренний метод для башни с загрузкой дальнобойных юнитов в гарнизон
+//4 Башню наследует от IrangeUnit и реализовываем подсчет суммарного урона от всех юнитов в гарнизоне
+//4.1 Создаем для башни метод подсчета суммарного урона, с возвращаемым значением. 
+
+//* не запрещено менять текущие интерфейсы/классы.

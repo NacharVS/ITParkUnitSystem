@@ -7,10 +7,12 @@ using UnitImplementation;
 
 namespace Units.BattleUnitsItems
 {
-    class Halberd : IBattleUnitWeapon
+    struct Halberd : IBattleUnitWeapon
     {
         public int MinDamage => 1;
 
         public int MaxDamage => 30;
+
+       
     }
 }

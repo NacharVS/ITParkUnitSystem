@@ -21,13 +21,31 @@ namespace Units
 
         public Footman CreateFootman()
         {
-            return new Footman(60, 60, new IronShortSword());
+            return new Footman(60, 60, new IronShortSword(2, 6));
         }
 
         public Archer CreateArcher()
         {
-            return new Archer(60, 60, new Halberd());
+            return new Archer(new ShortBow(3));
             
+        }
+
+        public Archer CreateArcher(int arrows)
+        {
+            return new Archer(new ShortBow(arrows));
+
+        }
+
+        public Slinger CreateSlinger()
+        {
+            return new Slinger(new Slingshot(3));
+
+        }
+
+        public Slinger CreateSlinger(int stones)
+        {
+            return new Slinger(new Slingshot(stones));
+
         }
 
         public void UnitInfo()
