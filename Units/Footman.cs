@@ -13,11 +13,11 @@ namespace Units
         {
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
-            currentWeapon = weaponParametr;
+            _currentWeapon = weaponParametr;
         }
         private double _armor;
         public int WalkingSpeed => 6;
-        IBattleUnitWeapon currentWeapon;
+        IBattleUnitWeapon _currentWeapon; //текущее оружие
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int Damage { get => 7; set => throw new NotImplementedException(); }
@@ -31,7 +31,7 @@ namespace Units
         public void Attack(IUnit unit)
         {
             var rnd=new Random();
-            var currentDamage = rnd.Next(currentWeapon.MinDamage, currentWeapon.MaxDamage);
+            var currentDamage = rnd.Next(_currentWeapon.MinDamage, _currentWeapon.MaxDamage);
             unit.CurrentHealth -= currentDamage;
             Console.WriteLine($"{GetType().Name} inflicted {currentDamage} damage to {unit.GetType().Name}");
             unit.UnitInfo();
@@ -56,9 +56,9 @@ namespace Units
             throw new NotImplementedException();
         }
 
-        public void ChangeWeapon(IBattleUnitWeapon weapon)
+        public void ChangeWeapon(IBattleUnitWeapon newWeapon)
         {
-            throw new NotImplementedException();
+            _currentWeapon = newWeapon;
         }
     }
 }

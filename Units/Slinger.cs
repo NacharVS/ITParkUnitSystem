@@ -4,25 +4,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnitImplementation;
+using Units.BattleUnitsItem;
 
 namespace Units
 {
-    internal class Slinger: Unit, IBattleUnit, IBuffable, IRangeUnit
+    internal class Slinger: Unit, IBattleUnit, IBuffable, IRangeUnit, IRangeWeapon
     {
-        private int _stones;
+        IRangeWeapon _rangeWeapon;
+        IBattleUnitWeapon _extraWeapon = new IronShortSword();
+        private int _rangeDamage;
+        private int _armor;
+        public Slinger(IRangeWeapon rangeWeapon)
+        {
+            this._rangeWeapon = rangeWeapon;
+        }
+        public int WalkingSpeed => 9;
+        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+        public int Armor { get => _armor; set => _armor = value; }
+        public int Ammunition { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int RangeDamage { get => _rangeDamage; set => _rangeDamage = value; }
 
-        public double CurrentHealth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double MaxHealth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Armor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int MinDamage => throw new NotImplementedException();
+
+        public int MaxDamage => throw new NotImplementedException();
+
+        public IRangeWeapon RangeWeapon => _rangeWeapon;
 
         public void Attack(IUnit unit)
         {
-            throw new NotImplementedException();
+            if (_rangeWeapon.Ammunition <= 0)
+            {
+                var rnd = new Random();
+                var currentDamage = rnd.Next(_extraWeapon.MinDamage, _extraWeapon.MaxDamage);
+                unit.CurrentHealth -= currentDamage;
+                Console.WriteLine($"{GetType().Name} inflicted {currentDamage} meelee damage to {unit.GetType().Name}");
+                unit.UnitInfo();
+                Console.WriteLine("Weapon is changed");
+            }
+            else
+            {
+                var rnd = new Random();
+                var currentDamage = rnd.Next(_rangeWeapon.MinDamage, _rangeWeapon.MaxDamage);
+                unit.CurrentHealth -= currentDamage;
+                Console.WriteLine($"{GetType().Name} inflicted {currentDamage} stone damage to {unit.GetType().Name}");
+                _rangeWeapon.Ammunition--;
+                unit.UnitInfo();
+            }
         }
 
         public void ChangeWeapon(IBattleUnitWeapon newWeapon)
         {
             throw new NotImplementedException();
+        }
+
+        public int RangeAttack()
+        {
+            var rnd = new Random();
+            return RangeDamage = rnd.Next(_rangeWeapon.MinDamage, _rangeWeapon.MaxDamage);
         }
 
         public void StoneSkin()
@@ -32,7 +71,7 @@ namespace Units
 
         public void UnitInfo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"   {GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} armor {Armor}");
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Units
     {
         IRangeWeapon _rangeWeapon;
         IBattleUnitWeapon _extraWeapon=new IronShortSword();
+        private int _rangeDamage;
         private int _armor;
         public int Armor { get => _armor; set => _armor = value; }
 
@@ -23,11 +24,12 @@ namespace Units
         public double CurrentHealth { get => _currentHealth; set => _currentHealth=value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth=value; }
         public int Ammunition { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int RangeDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int RangeDamage { get => _rangeDamage; set => _rangeDamage = value; }
 
         public int MinDamage => throw new NotImplementedException();
 
         public int MaxDamage => throw new NotImplementedException();
+        public IRangeWeapon RangeWeapon => _rangeWeapon;
 
         public void Attack(IUnit unit)
         {
@@ -58,12 +60,18 @@ namespace Units
 
         public void UnitInfo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"   {GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} armor {Armor}");
         }
 
         public void StoneSkin()
         {
             throw new NotImplementedException();
+        }
+
+        public int RangeAttack()
+        {
+            var rnd = new Random();
+            return RangeDamage = rnd.Next(_rangeWeapon.MinDamage, _rangeWeapon.MaxDamage);
         }
     }
 }

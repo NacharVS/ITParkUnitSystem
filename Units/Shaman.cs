@@ -25,7 +25,7 @@ namespace Units
         }
         public void Buff(IBuffable unit) 
         {
-            Console.WriteLine("Casting stoneSkinSpell");
+            Console.WriteLine($"{GetType().Name} casting stoneSkinSpell on {unit.GetType().Name}");
             unit.StoneSkin();
         }
 
