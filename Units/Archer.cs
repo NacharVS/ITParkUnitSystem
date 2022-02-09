@@ -24,7 +24,7 @@ namespace Units
 
         public int WalkingSpeed => 8;
 
-        public IRangeWeapon RangeWeapon => throw new NotImplementedException();
+        public IRangeWeapon RangeWeapon { get => _rangeWeapon; set => _rangeWeapon = value; }
 
         public void Attack(IUnit unit)
         {
@@ -32,15 +32,14 @@ namespace Units
             {
                 Random rnd = new Random();
                 var currentDamage = rnd.Next(_extraWeapon.MinDamage, _extraWeapon.MaxDamage);
-                Console.WriteLine($"Footman inflicted {currentDamage}");
+                Console.WriteLine($"Archer inflicted {currentDamage}");
                 unit.CurrentHealth -= currentDamage;
                 unit.UnitInfo();
                 Console.WriteLine("weapon has changed");
             }
             else
             {
-                Random rnd = new Random();
-                var currentDamage = rnd.Next(_rangeWeapon.MinDamage, _rangeWeapon.MaxDamage);
+                var currentDamage = RangeWeapon.Damage();
                 Console.WriteLine($"Archer inflicted {currentDamage}");
                 unit.CurrentHealth -= currentDamage;
                 _rangeWeapon.Ammunition--;

@@ -10,19 +10,41 @@ namespace Units
 {
     class Slinger : Unit, IBattleUnit, IBufable, IMovableUnit, IRangeUnit
     {
-        private int _stones;
+        IRangeWeapon _rangeWeapon;
+        IBattleUnitWeapon _extraWeapon = new Knife();
 
-        public int Armor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double CurrentHealth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double MaxHealth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Archer(IRangeWeapon rangeWeapon)
+        {
+            this._rangeWeapon = rangeWeapon;
+        }
+        private int _armor;
+        public int Armor { get => _armor; set => _armor = value; }
+        public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+        public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
-        public int WalkingSpeed => throw new NotImplementedException();
+        public int WalkingSpeed => 8;
 
-        public IRangeWeapon RangeWeapon => throw new NotImplementedException();
+        public IRangeWeapon RangeWeapon { get => _rangeWeapon; set => _rangeWeapon = value; }
 
         public void Attack(IUnit unit)
         {
-            throw new NotImplementedException();
+            if (_rangeWeapon.Ammunition <= 0)
+            {
+                Random rnd = new Random();
+                var currentDamage = rnd.Next(_extraWeapon.MinDamage, _extraWeapon.MaxDamage);
+                Console.WriteLine($"Archer inflicted {currentDamage}");
+                unit.CurrentHealth -= currentDamage;
+                unit.UnitInfo();
+                Console.WriteLine("weapon has changed");
+            }
+            else
+            {
+                var currentDamage = RangeWeapon.Damage();
+                Console.WriteLine($"Archer inflicted {currentDamage}");
+                unit.CurrentHealth -= currentDamage;
+                _rangeWeapon.Ammunition--;
+                unit.UnitInfo();
+            }
         }
 
         public void ChangeWeapon(IBattleUnitWeapon newWeapon)

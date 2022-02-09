@@ -20,5 +20,12 @@ namespace Units.BattleUnitsItems
         public int MinDamage => 3;
 
         public int MaxDamage => 7;
+
+        public int Damage()
+        {
+            Random rnd = new Random();
+            var currentDamage = rnd.Next(MinDamage, MaxDamage);
+            return currentDamage;
+        }
     }
 }
