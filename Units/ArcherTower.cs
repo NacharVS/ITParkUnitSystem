@@ -3,12 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitImplementation;
 
 namespace Units
 {
-    class ArcherTower
+    class ArcherTower: IRangeUnit
     {
-        //private List</*IRangeUnit*/> garnizon;
+        private List<IRangeUnit> garnizon=new List<IRangeUnit>();
+
+        public void UpLoadRangeUnit (IRangeUnit rangeUnit)
+        {
+            if (garnizon.Count <10)
+            { 
+                garnizon.Add(rangeUnit);
+            }
+            else
+            {
+                Console.WriteLine($"ArcherTower is full");
+            }
+            
+        }
+
+        public IRangeWeapon RangeWeapon => throw new NotImplementedException();
+
+        
+        public void Attack(IUnit unit)
+        {
+            if (garnizon.Any()) //условие если в горнизоне есть RangeUnit
+            {
+                var currentDamage = RangeDamage();
+                Console.WriteLine($"ArcherTower inflicted {currentDamage}");
+                unit.CurrentHealth -= currentDamage;
+                unit.UnitInfo();
+            }
+            else
+            {
+                Console.WriteLine($"ArcherTower is empty");
+            }
+        }
+
+        public int RangeDamage()
+        {
+            int damage = 0;
+            foreach (var item in garnizon)
+            {
+                damage += item.RangeDamage();
+            }
+            return damage;
+        }
 
         //1. Переделать интерфейс iRangeWEapon. Добавить свойства rangeDamage, и добавить метода дальней атаки возвращающий урон
         //2 создать итерфейс IRangeUnit, для всех дальнобойных юнитов. Здесь реализовать свойство типа IRangeWeapon, и, метод для атаки

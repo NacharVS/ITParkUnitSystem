@@ -33,7 +33,10 @@ namespace Units
         {
             return new Master(40, 40);
         }
-
+        public Slinger CreateSlinger()
+        {
+            return new Slinger(new Slingshot(5));
+        }
         public Shaman CreateShaman()
         {
             return new Shaman(15, 15);

@@ -11,5 +11,6 @@ namespace UnitImplementation
         IRangeWeapon RangeWeapon { get; }
 
         void Attack(IUnit unit);
+        int RangeDamage();
     }
 }

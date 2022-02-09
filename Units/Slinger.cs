@@ -13,7 +13,7 @@ namespace Units
         IRangeWeapon _rangeWeapon;
         IBattleUnitWeapon _extraWeapon = new Knife();
 
-        public Archer(IRangeWeapon rangeWeapon)
+        public Slinger(IRangeWeapon rangeWeapon)
         {
             this._rangeWeapon = rangeWeapon;
         }
@@ -22,7 +22,7 @@ namespace Units
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
-        public int WalkingSpeed => 8;
+        public int WalkingSpeed => 6;
 
         public IRangeWeapon RangeWeapon { get => _rangeWeapon; set => _rangeWeapon = value; }
 
@@ -32,7 +32,7 @@ namespace Units
             {
                 Random rnd = new Random();
                 var currentDamage = rnd.Next(_extraWeapon.MinDamage, _extraWeapon.MaxDamage);
-                Console.WriteLine($"Archer inflicted {currentDamage}");
+                Console.WriteLine($"Slinger inflicted {currentDamage}");
                 unit.CurrentHealth -= currentDamage;
                 unit.UnitInfo();
                 Console.WriteLine("weapon has changed");
@@ -40,7 +40,7 @@ namespace Units
             else
             {
                 var currentDamage = RangeWeapon.Damage();
-                Console.WriteLine($"Archer inflicted {currentDamage}");
+                Console.WriteLine($"Slinger inflicted {currentDamage}");
                 unit.CurrentHealth -= currentDamage;
                 _rangeWeapon.Ammunition--;
                 unit.UnitInfo();
@@ -65,6 +65,17 @@ namespace Units
         public void UnitInfo()
         {
             throw new NotImplementedException();
+        }
+        public int RangeDamage()
+        {
+            if (_rangeWeapon.Ammunition > 0)
+            {
+                return _rangeWeapon.Damage();
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

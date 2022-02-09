@@ -10,14 +10,20 @@ namespace Units
         {
             var building1 = new Church();
             var building2 = new Castle();
+            var building3 = new ArcherTower();
             var unitShaman = building2.CreateShaman();
             var unitPeasant = building2.CreatePeasant();
             var unitFootman = building2.CreateFootman(new Halberd());
             var unitArcher = building2.CreateArcher();
             var unitMaster = building2.CreateMaster();
-
+            var unitSlinger = building2.CreateSlinger();
             var weaponKnife = unitMaster.CreateKnife();
 
+            building3.UpLoadRangeUnit(unitSlinger);
+            building3.UpLoadRangeUnit(unitArcher);
+         
+
+            building3.Attack(unitFootman);
             //var weaponNew = new Halberd();
             //var rangeUnit = building2.CreateArcher();
             //var unit = building2.CreatePeasant();

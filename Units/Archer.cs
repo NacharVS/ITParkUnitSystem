@@ -66,5 +66,17 @@ namespace Units
         {
             throw new NotImplementedException();
         }
+
+        public int RangeDamage()
+        {
+            if (_rangeWeapon.Ammunition > 0)
+            {
+                return _rangeWeapon.Damage(); 
+            }
+            else
+            {
+                return 0;  
+            }
+        }
     }
 }
