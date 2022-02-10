@@ -18,8 +18,10 @@ namespace Units
             var unitMaster = building2.CreateMaster();
             var unitSlinger = building2.CreateSlinger();
             var weaponKnife = unitMaster.CreateKnife();
+            
+            MongoDataBase.AddToDataBase(unitArcher)
 
-            MongoDataBase.AddArcherToDataBase(unitArcher);
+            //MongoDataBase.AddArcherToDataBase(unitArcher);
             //building3.UpLoadRangeUnit(unitSlinger);
             //building3.UpLoadRangeUnit(unitArcher);
 
