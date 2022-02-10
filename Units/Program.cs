@@ -19,10 +19,14 @@ namespace Units
             var unitSlinger = building2.CreateSlinger();
             var weaponKnife = unitMaster.CreateKnife();
 
-            building3.UpLoadRangeUnit(unitSlinger);
+            //building3.UpLoadRangeUnit(unitSlinger);
             building3.UpLoadRangeUnit(unitArcher);
          
 
+            building3.Attack(unitFootman);
+            building3.Attack(unitFootman);
+            building3.Attack(unitFootman);
+            building3.Attack(unitFootman);
             building3.Attack(unitFootman);
             //var weaponNew = new Halberd();
             //var rangeUnit = building2.CreateArcher();

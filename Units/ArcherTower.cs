@@ -9,7 +9,10 @@ namespace Units
 {
     class ArcherTower: IRangeUnit
     {
+        
         private List<IRangeUnit> garnizon=new List<IRangeUnit>();
+
+        public IRangeWeapon RangeWeapon => throw new NotImplementedException();
 
         public void UpLoadRangeUnit (IRangeUnit rangeUnit)
         {
@@ -24,17 +27,16 @@ namespace Units
             
         }
 
-        public IRangeWeapon RangeWeapon => throw new NotImplementedException();
 
-        
         public void Attack(IUnit unit)
         {
             if (garnizon.Any()) //условие если в горнизоне есть RangeUnit
             {
-                var currentDamage = RangeDamage();
-                Console.WriteLine($"ArcherTower inflicted {currentDamage}");
-                unit.CurrentHealth -= currentDamage;
-                unit.UnitInfo();
+               
+                    var currentDamage = RangeDamage();
+                    Console.WriteLine($"ArcherTower inflicted {currentDamage}");
+                    unit.CurrentHealth -= currentDamage;
+                    unit.UnitInfo();
             }
             else
             {
@@ -47,7 +49,8 @@ namespace Units
             int damage = 0;
             foreach (var item in garnizon)
             {
-                damage += item.RangeDamage();
+               damage += item.RangeDamage();
+                item.RangeWeapon.Ammunition--; 
             }
             return damage;
         }
