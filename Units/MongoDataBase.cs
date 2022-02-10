@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using System.Collections.Generic;
 using UnitImplementation;
 
 namespace Units
@@ -11,6 +12,29 @@ namespace Units
             var database = client.GetDatabase("ITParkUnitSystem");
             var collection = database.GetCollection<Archer>("RangeUnits");
             collection.InsertOne(archer);
+        }
+
+        public static Archer GetSingleArcherFromDataBase(string searcName)
+        {
+            MongoClient client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("ITParkUnitSystem");
+            var collection = database.GetCollection<Archer>("RangeUnits");
+            var resuilt = collection.Find(x => x.Name == searcName).FirstOrDefault();
+            if (resuilt == null)
+            {
+               
+                return null;
+            }
+            else
+                return resuilt;
+        }
+
+        public static List<IUnit> GetFromDataBase()
+        {
+            MongoClient client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("ITParkUnitSystem");
+            var collection = database.GetCollection<IUnit>("RangeUnits");
+            return collection.Find(x => true).ToList();
         }
 
         public static void AddFootmanToDataBase(Footman footman)
@@ -27,6 +51,14 @@ namespace Units
             var database = client.GetDatabase("ITParkUnitSystem");
             var collection = database.GetCollection<IUnit>("AllUnitsInterfaces");
             collection.InsertOne(unit);
+        }
+
+        public static List<Unit> GetAllUnitsFromCollection()
+        {
+            MongoClient client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("ITParkUnitSystem");
+            var collection = database.GetCollection<Unit>("AllUnitsInterfaces");
+            return collection.Find(x => true).ToList();
         }
     }
 }

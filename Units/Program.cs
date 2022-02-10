@@ -15,10 +15,20 @@ namespace Units
             var rangeUnit = building2.CreateArcher();
             var unit = building2.CreatePeasant();
             var unit2 = building2.CreateFootman(weaponNew);
-            MongoDataBase.AddToDataBase(unit);
-            MongoDataBase.AddToDataBase(unit2);
-            MongoDataBase.AddToDataBase(rangeUnit);
-            MongoDataBase.AddToDataBase(building2);
+
+            Archer archer = MongoDataBase.GetSingleArcherFromDataBase("Ivan");
+            if (archer == null)
+            {
+                Console.WriteLine("Not found");
+            }
+            else
+                Console.WriteLine(archer.MaxHealth);
+
+            //var list = MongoDataBase.GetArcherFromDataBase();
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine($"{item._currentHealth} {item._maxHealth} {item._id} {item._extraWeapon.MinDamage}");
+            //}
         }
     }
 }

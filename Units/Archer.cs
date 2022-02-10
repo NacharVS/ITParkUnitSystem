@@ -10,10 +10,12 @@ namespace Units
         IRangeWeapon _rangeWeapon;
         public IronShortSword _extraWeapon = new IronShortSword(2, 6);
 
-        public Archer(IRangeWeapon rangeWeapon)
+        public Archer(IRangeWeapon rangeWeapon, string name)
         {
             this._rangeWeapon = rangeWeapon;
+            _name = name;
         }
+        private string _name;
 
         private int _armor;
         public int Armor { get => _armor; set => _armor = value; }
@@ -21,6 +23,9 @@ namespace Units
         public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public int WalkingSpeed => 8;
+
+        
+        public string Name { get => _name; set => _name = value; }
 
         public void Attack(IUnit unit)
         {
