@@ -1,6 +1,4 @@
-﻿using MongoDB.Driver;
-
-namespace Units
+﻿namespace Units
 {
     class MongoDataBase
     {
