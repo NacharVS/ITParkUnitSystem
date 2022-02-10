@@ -8,7 +8,7 @@ namespace Units
 {
     class ArcherTower
     {
-        private List</*IRangeUnit*/> garnizon;
+        //private List</*IRangeUnit*/> garnizon;
 
         //1. Реализовать атаку для ArcherTower
         //2. Урон от атаки складываеться исходя из количества юнитов в гарнизоне

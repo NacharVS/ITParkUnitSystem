@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnitImplementation;
 using Units.BattleUnitsItems;
 
@@ -11,12 +8,13 @@ namespace Units
     class Archer : Unit, IBattleUnit, IBufable, IMovableUnit
     {
         IRangeWeapon _rangeWeapon;
-        IBattleUnitWeapon _extraWeapon = new IronShortSword(2, 6);
+        public IronShortSword _extraWeapon = new IronShortSword(2, 6);
 
         public Archer(IRangeWeapon rangeWeapon)
         {
             this._rangeWeapon = rangeWeapon;
         }
+
         private int _armor;
         public int Armor { get => _armor; set => _armor = value; }
         public double CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
