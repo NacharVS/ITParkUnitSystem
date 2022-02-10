@@ -15,7 +15,10 @@ namespace Units
             var rangeUnit = building2.CreateArcher();
             var unit = building2.CreatePeasant();
             var unit2 = building2.CreateFootman(weaponNew);
-            MongoDataBase.AddArcherToDataBase(rangeUnit);
+            MongoDataBase.AddToDataBase(unit);
+            MongoDataBase.AddToDataBase(unit2);
+            MongoDataBase.AddToDataBase(rangeUnit);
+            MongoDataBase.AddToDataBase(building2);
         }
     }
 }

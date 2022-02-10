@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using UnitImplementation;
 
 namespace Units
 {
@@ -18,6 +19,14 @@ namespace Units
             var database = client.GetDatabase("ITParkUnitSystem");
             var collection = database.GetCollection<Footman>("RangeUnits");
             collection.InsertOne(footman);
+        }
+
+        public static void AddToDataBase(IUnit unit)
+        {
+            MongoClient client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("ITParkUnitSystem");
+            var collection = database.GetCollection<IUnit>("AllUnitsInterfaces");
+            collection.InsertOne(unit);
         }
     }
 }
