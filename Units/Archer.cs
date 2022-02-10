@@ -7,7 +7,7 @@ namespace Units
     internal class Archer : Unit, IBattleUnit,IBuffable,IRangeUnit,IRangeWeapon
     {
         IRangeWeapon _rangeWeapon;
-        IBattleUnitWeapon _extraWeapon=new IronShortSword();
+        public IBattleUnitWeapon _extraWeapon=new IronShortSword();
         private int _rangeDamage;
         private int _armor;
         private int _amunition;

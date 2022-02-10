@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using System.Collections.Generic;
 using UnitImplementation;
 
 namespace Units
@@ -11,6 +12,13 @@ namespace Units
             var database = client.GetDatabase("ITParkUnitSystem");
             var collection = database.GetCollection<Archer>("RangeUnits");
             collection.InsertOne(archer);
+        }
+        public static List<Archer> GeArcherFromDataBase()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("ITParkUnitSystem");
+            var collection = database.GetCollection<Archer>("RangeUnits");
+            return collection.Find(x => true).ToList();
         }
         public static void AddFootmanToDataBase(Footman footman)
         {
@@ -32,6 +40,13 @@ namespace Units
             var database = client.GetDatabase("ITParkUnitSystem");
             var collection = database.GetCollection<IBattleUnitWeapon>("AllUnitsWeapons");
             collection.InsertOne(weapon);
+        }
+        public static List<Unit> GetAllUnitsFromCollection()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("ITParkUnitSystem");
+            var collection = database.GetCollection<Unit>("RangeUnits");
+            return collection.Find(x=>true).ToList();
         }
     }
 }

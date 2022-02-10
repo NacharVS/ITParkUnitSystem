@@ -8,23 +8,26 @@ namespace Units
     {
         static void Main(string[] args)
         {
-            //var church1 = new Church();
+            var church1 = new Church();
             var castle1 = new Castle();
-            //var shamanBoris = new Shaman();
+            var shamanBoris = new Shaman();
             var weaponNew = new Halberd();
             var archer1 = castle1.CreateArcher(); //создание лучников
             //lection 10.01.2022
             var footman1 = castle1.CreateFootman(); //создаем пехотинца
-            MongoDataBase.AddArcherToDataBase(archer1);
-            footman1.ChangeWeapon(weaponNew);
-            MongoDataBase.AddFootmanToDataBase(footman1);
-            MongoDataBase.AddToDataBase(castle1);
-            MongoDataBase.AddWeaponToDataBase(weaponNew);
             var footman2 = castle1.CreateFootman(weaponNew);
-            MongoDataBase.AddFootmanToDataBase(footman2);
 
+            //MongoDataBase.AddArcherToDataBase(archer1);
+            //MongoDataBase.AddFootmanToDataBase(footman1);
+            //MongoDataBase.AddFootmanToDataBase(footman2);
+            //MongoDataBase.AddToDataBase(castle1);
+            //MongoDataBase.AddWeaponToDataBase(weaponNew);
 
-
+            var list=MongoDataBase.GeArcherFromDataBase();
+            foreach (var item in list)
+            {
+                Console.WriteLine($"{item._currentHealth} {item._maxHealth} {item._id} {item._extraWeapon.MinDamage}");
+            }
 
             //var slinger7 = castle1.CreateSlinger(); //создание пращера
             //var archer2 = castle1.CreateArcher();
