@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UnitImplementation
+﻿namespace UnitImplementation
 {
     public interface IUnit
     {

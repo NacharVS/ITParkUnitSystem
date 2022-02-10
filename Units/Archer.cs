@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnitImplementation;
 using Units.BattleUnitsItem;
 
@@ -14,6 +10,7 @@ namespace Units
         IBattleUnitWeapon _extraWeapon=new IronShortSword();
         private int _rangeDamage;
         private int _armor;
+        private int _amunition;
         public int Armor { get => _armor; set => _armor = value; }
 
         public Archer(IRangeWeapon rangeWeapon)
@@ -23,7 +20,7 @@ namespace Units
         public int WalkingSpeed => 8;
         public double CurrentHealth { get => _currentHealth; set => _currentHealth=value; }
         public double MaxHealth { get => _maxHealth; set => _maxHealth=value; }
-        public int Ammunition { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Ammunition { get => _amunition; set => throw new NotImplementedException(); }
         public int RangeDamage { get => _rangeDamage; set => _rangeDamage = value; }
 
         public int MinDamage => throw new NotImplementedException();

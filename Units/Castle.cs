@@ -39,6 +39,11 @@ namespace Units
             Console.WriteLine($"{GetType().Name} create the Footman");
             return new Footman(60, 60, new IronShortSword());
         }
+        public Footman CreateFootman(IBattleUnitWeapon weapon) //создание Пехотинца
+        {
+            Console.WriteLine($"{GetType().Name} create the Footman");
+            return new Footman(60, 60, weapon);
+        }
         public void UnitInfo()
         {
             Console.WriteLine($"{GetType().Name} health - {CurrentHealth} wall - {Wall}");
