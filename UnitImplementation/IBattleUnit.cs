@@ -12,5 +12,7 @@ namespace UnitImplementation
         void Attack (IUnit unit);
 
         void ChangeWeapon(IBattleUnitWeapon newWeapon); 
+
+
     }
 }

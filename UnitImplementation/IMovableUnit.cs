@@ -10,5 +10,6 @@ namespace UnitImplementation
     {
         public int WalkingSpeed { get; }
         public void Move();
+
     }
 }
