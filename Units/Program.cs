@@ -15,17 +15,10 @@ namespace Units
             var rangeUnit = building2.CreateArcher();
             var unit = building2.CreatePeasant();
             var unit2 = building2.CreateFootman(weaponNew);
-            unit.UnitInfo();
-            building1.Blessing(unit);
-            unit.UnitInfo();
-            unit2.ChangeWeapon(weaponNew);
-            rangeUnit.Attack(unit);
-            rangeUnit.Attack(unit);
-            rangeUnit.Attack(unit);
-            rangeUnit.Attack(unit);
-            unit.UnitInfo();
-            shamanBoris.Buff(shamanBoris);
-            shamanBoris.UnitInfo();
+            MongoDataBase.AddArcherToDataBace(rangeUnit);
+
         }
+
+
     }
 }
