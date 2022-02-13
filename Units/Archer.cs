@@ -10,13 +10,13 @@ namespace Units
     class Archer : Unit, IMovableUnit, IBattleUnit, IBattleRemoteUnit, IBufable, IChangeRemoteWeapon
     {
         private int _armor;
-        private IBattleUnitWeapon currentWeapon;
+        public IBattleUnitWeapon currentWeapon;
         IBattleUnitRemoteWeapon currentRemoteWeapon;
         
         public Archer(double currentHealth, double maxHealth, IBattleUnitWeapon weapon, IBattleUnitRemoteWeapon remoteWeapon)
         {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
+            _currentHealth = currentHealth;
+            _maxHealth = maxHealth;
             currentWeapon = weapon;
             currentRemoteWeapon = remoteWeapon;
         }
