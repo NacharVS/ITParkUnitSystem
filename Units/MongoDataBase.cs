@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using System.Collections.Generic;
 using UnitImplementation;
 
 namespace Units
@@ -11,6 +12,14 @@ namespace Units
             var dataBase = client.GetDatabase("ITUnitSystem");
             var collection = dataBase.GetCollection<Archer>("Archers");
             collection.InsertOne(archer);
+        }
+
+        public static List<Archer> GetArcherToDataBase()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var dataBase = client.GetDatabase("ITUnitSystem");
+            var collection = dataBase.GetCollection<Archer>("Archers");
+            return collection.Find(x => true).ToList();
         }
 
         public static void AddFootmanToDataBase(Footman footman)

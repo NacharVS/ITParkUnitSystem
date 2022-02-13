@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Units
 {
     class Unit 
     {
+        public ObjectId Id { get; set; } 
         internal double _currentHealth;
         internal double _maxHealth;
 

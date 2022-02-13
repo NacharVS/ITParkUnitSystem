@@ -10,7 +10,7 @@ namespace Units
     class Archer : Unit, IMovableUnit, IBattleUnit, IBattleRemoteUnit, IBufable, IChangeRemoteWeapon
     {
         private int _armor;
-        public IBattleUnitWeapon currentWeapon;
+        IBattleUnitWeapon currentWeapon;
         IBattleUnitRemoteWeapon currentRemoteWeapon;
         
         public Archer(double currentHealth, double maxHealth, IBattleUnitWeapon weapon, IBattleUnitRemoteWeapon remoteWeapon)
@@ -22,6 +22,8 @@ namespace Units
         }
 
         public int WalkingSpeed => 7;
+
+        public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public double CurrentHealth
         {
@@ -39,7 +41,7 @@ namespace Units
                 else _currentHealth = value;
             }
         }
-        public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+        
         public int Armor { get => _armor; set => _armor = value; }
 
         public void Attack(IMovableUnit unit)
@@ -105,7 +107,7 @@ namespace Units
 
         public void UnitInfo()
         {
-            Console.WriteLine($"{GetType().Name} health {CurrentHealth} maxHealth {MaxHealth} armor {Armor}");
+            Console.WriteLine($"{GetType().Name} ID-{Id} health-{CurrentHealth} maxHealth-{MaxHealth} armor-{Armor}");
         }
 
         

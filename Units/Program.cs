@@ -31,6 +31,14 @@ namespace Units
             footman1.UnitInfo();
             archer1.UnitInfo();
 
+            MongoDataBase.AddArcherToDataBase(archer1);
+
+            var list = MongoDataBase.GetArcherToDataBase();
+            foreach (var item in list)
+            {
+                item.UnitInfo();
+            }
+
 
             //var archer2 = castle.CreateArcher(ironShortSword, shortbow);
             //var archer3 = castle.CreateArcher(ironShortSword, shortbow);
@@ -45,14 +53,14 @@ namespace Units
 
             //archerTower.DistanceAttack(footman1);
 
-            MongoDataBase.AddArcherToDataBase(archer1);
+            
 
-            MongoDataBase.AddFootmanToDataBase(footman1);
+            //MongoDataBase.AddFootmanToDataBase(footman1);
 
-            MongoDataBase.AddWeaponToDataBase(ironShortSword);
+            //MongoDataBase.AddWeaponToDataBase(ironShortSword);
 
-            MongoDataBase.AddUnitToDataBase(archer1);
-            MongoDataBase.AddUnitToDataBase(footman1);
+            //MongoDataBase.AddUnitToDataBase(archer1);
+            //MongoDataBase.AddUnitToDataBase(footman1);
             
             //footman1.UnitInfo();
 
