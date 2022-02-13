@@ -21,11 +21,11 @@ namespace Units
             collection.InsertOne(footman);
         }
 
-        public static void AddUnitToDataBase(Unit unit)
+        public static void AddUnitToDataBase(IUnit unit)
         {
             var client = new MongoClient("mongodb://localhost");
             var dataBase = client.GetDatabase("ITUnitSystem");
-            var collection = dataBase.GetCollection<Unit>("Unit");
+            var collection = dataBase.GetCollection<IUnit>("Unit");
             collection.InsertOne(unit);
         }
 
