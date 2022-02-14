@@ -24,12 +24,12 @@ namespace Units
             shamanBoris.Buff(shamanBoris);
             shamanBoris.UnitInfo();
 
-            //var building3 = new Forge();
-            //var smith = building3.CreateBlacksmith();
-            //smith.UnitInfo();
-            //smith.CreateIronShortSword();
-            //smith.CreateHalberd();
-            //Console.WriteLine();
+            var building3 = new Forge();
+            var smith = building3.CreateBlacksmith();
+            smith.UnitInfo();
+            var ironShortSword = smith.CreateIronShortSword();
+            var halberd = smith.CreateHalberd();
+            Console.WriteLine();
 
             var archer1 = building2.CreateArcher(1);
             var archer2 = building2.CreateArcher(2);
@@ -37,18 +37,32 @@ namespace Units
             var slinger1 = building2.CreateSlinger(2);
             var slinger2 = building2.CreateSlinger(3);
 
-            var archerTower = new ArcherTower();
-            archerTower.LoadRangeUnits(archer1);
-            archerTower.LoadRangeUnits(archer2);
-            archerTower.LoadRangeUnits(archer3);
-            archerTower.LoadRangeUnits(slinger1);
-            archerTower.LoadRangeUnits(slinger2);
+            //var archerTower = new ArcherTower();
+            //archerTower.LoadRangeUnits(archer1);
+            //archerTower.LoadRangeUnits(archer2);
+            //archerTower.LoadRangeUnits(archer3);
+            //archerTower.LoadRangeUnits(slinger1);
+            //archerTower.LoadRangeUnits(slinger2);
 
-            archerTower.Attack(unit2);
-            archerTower.Attack(unit2);
-            archerTower.Attack(unit2);
-            archerTower.Attack(unit2);  //было в луках по 3 стрелы, не должна атаковать
-
+            //archerTower.Attack(unit2);
+            //archerTower.Attack(unit2);
+            //archerTower.Attack(unit2);
+            //archerTower.Attack(unit2);  //было в луках по 3 стрелы, не должна атаковать
+            //MongoDataBase.AddArcherToDataBase(archer1);
+            //MongoDataBase.AddFootmanToDataBase(unit2);
+            //MongoDataBase.AddToDataBase(unit);
+            //MongoDataBase.AddToDataBase(shamanBoris);
+            //MongoDataBase.AddToDataBase(building1);
+            //MongoDataBase.AddToDataBase(building2);
+            //MongoDataBase.AddToDataBase(archer1);
+            //MongoDataBase.AddWeaponToDataBase(archer1._extraWeapon);
+            //MongoDataBase.AddWeaponToDataBase(archer1.RangeWeapon);
+            //MongoDataBase.AddWeaponToDataBase(archer2._extraWeapon);
+            //MongoDataBase.AddWeaponToDataBase(archer1.RangeWeapon);
+            //MongoDataBase.AddWeaponToDataBase(ironShortSword);
+            //MongoDataBase.AddWeaponToDataBase(halberd);
+            MongoDataBase.AddWeaponToDataBase(slinger1.RangeWeapon);
+            MongoDataBase.AddWeaponToDataBase(slinger2.RangeWeapon);
         }
     }
 }
